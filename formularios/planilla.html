@@ -2,8 +2,266 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <title>GesTIck - Planilla de uso de laboratorio</title>
 </head>
 <body>
-
+    <header>
+        <img src="/gestick github/gestick/imagenes/logo-app.png" alt="Logo GesTIck">
+    </header>
+    <main>
+        <section>
+            <form action="procesar_planilla.php" method="POST" name="datos">
+                <table border="1" cellpadding="10">
+                    <tr>
+                        <td colspan="8" align="center">
+                            <b>Planilla de uso de laboratorio</b>
+                        </td>    
+                    </tr>
+                    <tr>
+                        <td>Docente</td> <!--- esto luego será rellenado automáticamente con el nombre del docente que inició sesión, se podria sacar de la pantalla para achicar la planilla y que se vea al final como texto --->
+                        <td>
+                            <input type="text" name="docente">
+                        </td>
+                        <td>Fecha</td>
+                        <td><input type="date" name="fecha"></td>
+                        <td>Hora de entrada</td>
+                        <td><input type="time" name="hora_entrada"></td>
+                        <td>Hora de salida</td>
+                        <td><input type="time" name="hora_salida"></td>
+                    </tr>
+                    <tr>
+                        <td>Grupo</td> <!--- esto luego será un menú desplegable automático con los grupos que tiene asignados el docente que inició sesión --->
+                        <td><input type="text" name="grupo"></td>
+                        <td>Turno</td>
+                        <td>
+                            <select name="turno"> <!--- esto luego será rellenado automáticamente con el turno que tiene asignado el docente que inició sesión --->
+                                <option value="M">Mañana</option>
+                                <option value="T">Tarde</option>
+                                <option value="N">Noche</option>
+                            </select>
+                        </td>
+                        <td>Asignatura</td> <!--- esto luego será un menú desplegable automático con las asignaturas asignadas al usuario que inició sesión o rellenado automáticamente si tiene una sola asignatura --->
+                        <td>
+                            <input type="text" name="asignatura">
+                        </td>
+                        <td>Aula</td>
+                        <td>
+                            <select name="aula">
+                                <option value="" selected disabled>Seleccione un aula</option>
+                                <option value="Lab1">Laboratorio 1</option>
+                                <option value="Lab2">Laboratorio 2</option>
+                                <option value="Lab3">Laboratorio 3</option>
+                                <option value="Lab4">Laboratorio 4</option>
+                                <option value="Lab5">Laboratorio 5</option>
+                                <option value="Lab6">Laboratorio 6</option>
+                                <option value="Taller1">Taller 1</option>
+                                <option value="Taller2">Taller 2</option>
+                                <option value="Taller3">Taller 3</option>
+                            </select>
+                        </td>
+                    </tr>
+                </table>
+                <br>
+                <table border="1" cellpadding="10">
+                    <tr>
+                        <td>
+                            <b>N° Equipo</b>
+                        </td>
+                        <td>
+                            <b>Nombre y Apellido</b>
+                        </td>
+                        <td>
+                            <b>Estado del Equipo</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td><input type="text" name="alumno[]"></td>
+                        <td>
+                            <select name="estado[]">
+                                <option value="Correcto" selected>Correcto</option>
+                                <option value="Faltante">Faltante</option>
+                                <option value="Daniado">Dañado</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><input type="text" name="alumno[]"></td>
+                        <td>
+                            <select name="estado[]">
+                                <option value="Correcto" selected>Correcto</option>
+                                <option value="Faltante">Faltante</option>
+                                <option value="Danado">Dañado</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>
+                            <input type="text" name="alumno[]">
+                        </td>
+                        <td>
+                            <select name="estado[]">
+                                <option value="Correcto"selected>Correcto</option>
+                                <option value="Faltante">Faltante</option>
+                                <option value="Danado">Dañado</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><input type="text" name="alumno[]"></td>
+                        <td>
+                            <select name="estado[]">
+                                <option value="Correcto" selected>Correcto</option>
+                                <option value="Faltante">Faltante</option>
+                                <option value="Danado">Dañado</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><input type="text" name="alumno[]"></td>
+                        <td>
+                            <select name="estado[]">
+                                <option value="Correcto" selected>Correcto</option>
+                                <option value="Faltante">Faltante</option>
+                                <option value="Danado">Dañado</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td><input type="text" name="alumno[]"></td>
+                        <td>
+                            <select name="estado[]">
+                                <option value="Correcto" selected>Correcto</option>
+                                <option value="Faltante">Faltante</option>
+                                <option value="Danado">Dañado</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td><input type="text" name="alumno[]"></td>
+                        <td>
+                            <select name="estado[]">
+                                <option value="Correcto" selected>Correcto</option>
+                                <option value="Faltante">Faltante</option>
+                                <option value="Danado">Dañado</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td><input type="text" name="alumno[]"></td>
+                        <td>
+                            <select name="estado[]">
+                                <option value="Correcto" selected>Correcto</option>
+                                <option value="Faltante">Faltante</option>
+                                <option value="Danado">Dañado</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td><input type="text" name="alumno[]"></td>
+                        <td>
+                            <select name="estado[]">
+                                <option value="Correcto" selected>Correcto</option>
+                                <option value="Faltante">Faltante</option>
+                                <option value="Danado">Dañado</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td><input type="text" name="alumno[]"></td>
+                        <td>
+                            <select name="estado[]">
+                                <option value="Correcto" selected>Correcto</option>
+                                <option value="Faltante">Faltante</option>
+                                <option value="Danado">Dañado</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td><input type="text" name="alumno[]"></td>
+                        <td>
+                            <select name="estado[]">
+                                <option value="Correcto" selected>Correcto</option>
+                                <option value="Faltante">Faltante</option>
+                                <option value="Danado">Dañado</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td><input type="text" name="alumno[]"></td>
+                        <td>
+                            <select name="estado[]">
+                                <option value="Correcto" selected>Correcto</option>
+                                <option value="Faltante">Faltante</option>
+                                <option value="Danado">Dañado</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td><input type="text" name="alumno[]"></td>
+                        <td>
+                            <select name="estado[]">
+                                <option value="Correcto" selected>Correcto</option>
+                                <option value="Faltante">Faltante</option>
+                                <option value="Danado">Dañado</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td><input type="text" name="alumno[]"></td>
+                        <td>
+                            <select name="estado[]">
+                                <option value="Correcto" selected>Correcto</option>
+                                <option value="Faltante">Faltante</option>
+                                <option value="Danado">Dañado</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td><input type="text" name="alumno[]"></td>
+                        <td>
+                            <select name="estado[]">
+                                <option value="Correcto" selected>Correcto</option>
+                                <option value="Faltante">Faltante</option>
+                                <option value="Danado">Dañado</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td><input type="text" name="alumno[]"></td>
+                        <td>
+                            <select name="estado[]">
+                                <option value="Correcto" selected>Correcto</option>
+                                <option value="Faltante">Faltante</option>
+                                <option value="Danado">Dañado</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" align="center">
+                            <input type="submit" value="Guardar planilla"></td>
+                    </tr>
+                </table>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>GesTIck - Sistema de Gestión de Recursos y Soporte de Informática</p>
+    </footer>
 </body>
 </html>
