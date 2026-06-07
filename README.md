@@ -71,7 +71,7 @@ Su objetivo principal es centralizar la administración de recursos tecnológico
 
 ### Alumno
 
-* Participa en solicitudes o préstamos cuando corresponda.
+* Participa en tickets o préstamos cuando corresponda.
 * No requiere una cuenta propia dentro del sistema.
 
 ---
@@ -158,4 +158,5 @@ Proyecto académico desarrollado con fines educativos.
 
 ## Equipo de Desarrollo
 
-Los integrantes del equipo serán añadidos en futuras versiones de este documento.
+Samara González, Victoria Garderes, Rodrigo Rodríguez y Roberto Marisquirena.
+Estudiantes de 3°MF de Bachillerato Tecnológico en el Instituto Tecnológico de Informática, Uruguay 2026.
