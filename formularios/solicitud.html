@@ -2,8 +2,46 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <title>GesTIck - Solicitud</title>
 </head>
 <body>
-
+    <header>
+        <img src="/gestick github/gestick/imagenes/logo-app.png" alt="Logo GesTIck">
+    </header>
+    <main>
+        <section>
+            <form action="procesar_solicitud.php" method="POST" name="datos">
+                <table border="1" cellpadding="10">
+                        <tr>
+                            <td colspan="4" align="center">
+                                <b>Solicitud</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Fecha</td>
+                            <td><input type="date" name="fecha"></td>
+                            <td>Asunto</td>
+                            <td><input type="text" name="asunto"></td>
+                        </tr>
+                        <tr>
+                            <td>Descripción</td>
+                            <td colspan="3"><textarea name="descripcion" maxlength="255" rows="5" cols="50" placeholder="Escribe aquí..."></textarea></textarea></td> <!--- Bloquear tamaño con CSS--->
+                        </tr>
+                        <tr>
+                            <td>Fecha de implementación</td>
+                            <td><input type="date" name="fecha_implementacion"></td>
+                            <td>Remitente</td>
+                            <td><p>< nombre del docente ></p></td> <!--- El nombre del docente que inició sesión debe mostrarse automáticamente --->
+                        </tr>
+                        <tr>
+                            <td colspan="4" align="center"><input type="submit" value="Enviar solicitud"></td>
+                        </tr>
+                </table>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>GesTIck - Sistema de Gestión de Recursos y Soporte de Informática</p>
+    </footer>
 </body>
 </html>
