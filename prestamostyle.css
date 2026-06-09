@@ -1,0 +1,209 @@
+:root {
+  --color-bg:         #f0f4f8;
+  --color-surface:    #ffffff;
+  --color-border:     #d1dbe8;
+  --color-accent:     #1a56db;
+  --color-accent-dk:  #1240a8;
+  --color-header-bg:  #0f2d6b;
+  --color-header-txt: #ffffff;
+  --color-row-alt:    #f7f9fc;
+  --color-label:      #4b5f7c;
+  --color-text:       #1a2636;
+  --color-footer-bg:  #0f2d6b;
+  --color-footer-txt: #a8bdd8;
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body:    'Inter', sans-serif;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+
+  --shadow-card: 0 2px 12px rgba(15, 45, 107, 0.10);
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: var(--color-header-bg);
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+
+header img {
+  height: 48px;
+  width: auto;
+}
+
+main {
+  flex: 1;
+  padding: 2rem 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+section {
+  width: 100%;
+  max-width: 780px;
+}
+
+form[name="datos"] {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+
+form[name="datos"] table {
+  width: 100%;
+  border-collapse: collapse;
+  border: none;
+}
+
+form[name="datos"] table tr:first-child td {
+  background-color: var(--color-header-bg);
+  color: var(--color-header-txt);
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-align: center;
+  padding: 1rem 1.5rem;
+  border: none;
+}
+
+form[name="datos"] table tr:not(:first-child):not(:last-child) td {
+  padding: 0.7rem 1rem;
+  border: 1px solid var(--color-border);
+  vertical-align: middle;
+}
+
+form[name="datos"] table tr:not(:first-child):not(:last-child) td:nth-child(odd) {
+  background-color: var(--color-row-alt);
+  color: var(--color-label);
+  font-weight: 600;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+  width: 1%;
+}
+
+form[name="datos"] table tr:nth-child(even):not(:last-child) td {
+  background-color: var(--color-row-alt);
+}
+
+form[name="datos"] table tr:last-child td {
+  padding: 1.25rem 1rem;
+  border: none;
+  border-top: 2px solid var(--color-border);
+  background-color: var(--color-surface);
+  text-align: center;
+}
+
+input[type="date"],
+input[type="text"],
+select {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 0.65rem 0.85rem;
+  width: 100%;
+  transition: border-color 0.15s, box-shadow 0.15s;
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+input[type="date"]:focus,
+input[type="text"]:focus,
+select:focus {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px rgba(26, 86, 219, 0.15);
+}
+
+input[type="text"]::placeholder {
+  color: #9aabbd;
+}
+
+select option:disabled {
+  color: #9aabbd;
+}
+
+input[type="submit"] {
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: #ffffff;
+  background-color: var(--color-accent);
+  border: none;
+  border-radius: var(--radius-md);
+  padding: 0.7rem 2.5rem;
+  cursor: pointer;
+  transition: background-color 0.15s, transform 0.1s;
+}
+
+input[type="submit"]:hover {
+  background-color: var(--color-accent-dk);
+}
+
+input[type="submit"]:active {
+  transform: scale(0.97);
+}
+
+footer {
+  background-color: var(--color-footer-bg);
+  color: var(--color-footer-txt);
+  text-align: center;
+  padding: 0.9rem 1rem;
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+}
+
+@media (max-width: 600px) {
+  main {
+    padding: 1rem 0.5rem;
+  }
+
+  form[name="datos"] table {
+    font-size: 0.8rem;
+  }
+
+  form[name="datos"] table tr:not(:first-child):not(:last-child) td:nth-child(odd) {
+    font-size: 0.7rem;
+  }
+
+  input[type="date"],
+  input[type="text"],
+  select {
+    font-size: 0.8rem;
+    padding: 0.35rem 0.5rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    transition: none !important;
+  }
+}
