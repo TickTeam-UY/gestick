@@ -1,0 +1,123 @@
+/* Configuración general */
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #1a2636;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 0;
+
+    /* Nuevas líneas */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Encabezado */
+
+header {
+    background-color: #0f2d6b;
+    padding: 15px;
+}
+
+header img {
+    height: 50px;
+}
+
+/* Contenido principal */
+
+main {
+    padding: 20px;
+
+    /* Nueva línea */
+    flex: 1;
+}
+
+section {
+    width: 100%;
+    max-width: 780px;
+    margin: auto;
+}
+
+/* Formulario */
+
+form[name="datos"] {
+    background-color: white;
+    border: 1px solid #d1dbe8;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* Tabla */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Título de la tabla */
+
+table tr:first-child td {
+    background-color: #0f2d6b;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    padding: 15px;
+}
+
+/* Celdas normales */
+
+td {
+    border: 1px solid #d1dbe8;
+    padding: 10px;
+}
+
+/* Etiquetas */
+
+td:first-child {
+    background-color: #f7f9fc;
+    font-weight: bold;
+}
+
+/* Última fila (botón) */
+
+table tr:last-child td {
+    text-align: center;
+    padding: 15px;
+}
+
+/* Campos de entrada */
+
+input[type="text"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #d1dbe8;
+    box-sizing: border-box;
+}
+
+/* Botón */
+
+input[type="submit"] {
+    background-color: #1a56db;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+input[type="submit"]:hover {
+    background-color: #1240a8;
+}
+
+/* Pie de página */
+
+footer {
+    background-color: #0f2d6b;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
