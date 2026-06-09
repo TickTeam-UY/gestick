@@ -2,8 +2,72 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <title>GesTIck - Préstamos</title>
 </head>
 <body>
-
+    <header>
+        <img src="/gestick github/gestick/imagenes/logo-app.png" alt="Logo GesTIck">
+    </header>
+    <main>
+        <section>
+            <form action="procesar_prestamo.php" method="POST" name="datos">
+                <table border="1" cellpadding="10">
+                    <tr>
+                        <td colspan="4" align="center">Préstamo</td>
+                    </tr>
+                    <tr>
+                        <td>Fecha de préstamo</td>
+                        <td><input type="date" name="fecha_prestamo"></td>
+                        <td>Fecha de devolución</td>
+                        <td><input type="date" name="fecha_devolucion"></td>
+                    </tr>
+                    <tr>
+                        <td>Alumno</td>
+                        <td>
+                            <select id="alumno" name="alumno">
+                                    <option value="" selected disabled>Seleccione un alumno</option>
+                                    <option value="54741781">Samara González</option>
+                                    <option value="12345678">Rodrigo Rodríguez</option>
+                                    <option value="12345679">Victoria Garderes</option>
+                                    <option value="12345680">Roberto Marisquirena</option>
+                            </select>
+                        </td>
+                        <td>Grupo</td>
+                        <td>
+                            <select id="grupo" name="grupo">
+                                    <option value="" selected disabled>Seleccione un grupo</option>
+                                    <option value="3MF">3°MF</option>
+                                    <option value="3MH">3°MH</option>
+                                    <option value="3MI">3°MI</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Equipo</td>
+                        <td>
+                            <select id="equipo" name="equipo">
+                                <option value="" selected disabled>Seleccione un equipo</option>
+                                <option value="atlas">Laptop Atlas</option>
+                                <option value="denebola">Laptop Denébola</option>
+                                <option value="electra">Laptop Electra</option>
+                                <option value="acrab">Laptop Acrab</option>
+                                <option value="sargas">Laptop Sargas</option>
+                                <option value="alnilam">Tablet Alnilam</option>
+                                <option value="mintaka">Tablet Mintaka</option>
+                            </select>
+                        </td>
+                        <td>Nro de serie</td>
+                        <td><input type="text" name="serie" maxlength="20" pattern="[A-Za-z0-9]+" required></td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" align="center"><input type="submit" value="Enviar"></td>
+                    </tr>
+                </table>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>GesTIck - Sistema de Gestión de Recursos y Soporte de Informática</p>
+    </footer>
 </body>
 </html>
