@@ -1,0 +1,129 @@
+/* Configuración general */
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #1a2636;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 0;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Encabezado */
+
+header {
+    background-color: #0f2d6b;
+    padding: 15px;
+}
+
+header img {
+    height: 50px;
+}
+
+/* Contenido principal */
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+section {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* Formulario */
+
+form[name="datos"] {
+    background-color: white;
+    border: 1px solid #d1dbe8;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* Tabla */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+/* Título */
+
+table tr:first-child td {
+    background-color: #0f2d6b;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px;
+}
+
+/* Celdas */
+
+td {
+    border: 1px solid #d1dbe8;
+    padding: 12px;
+    vertical-align: middle;
+}
+
+/* Etiquetas */
+
+td:nth-child(odd) {
+    background-color: #f7f9fc;
+    font-weight: bold;
+}
+
+/* Campos */
+
+input[type="text"],
+input[type="date"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #d1dbe8;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Bloquear tamaño del textarea */
+
+textarea {
+    resize: none;
+}
+
+/* Texto del remitente */
+
+p {
+    margin: 0;
+}
+
+/* Botón */
+
+input[type="submit"] {
+    background-color: #1a56db;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+input[type="submit"]:hover {
+    background-color: #1240a8;
+}
+
+/* Pie de página */
+
+footer {
+    background-color: #0f2d6b;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
