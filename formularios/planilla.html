@@ -18,19 +18,19 @@
                         </td>    
                     </tr>
                     <tr>
-                        <td>Docente</td> <!--- esto luego será rellenado automáticamente con el nombre del docente que inició sesión, se podria sacar de la pantalla para achicar la planilla y que se vea al final como texto --->
+                        <td><b>Docente</b></td> <!--- esto luego será rellenado automáticamente con el nombre del docente que inició sesión, se podria sacar de la pantalla para achicar la planilla y que se vea al final como texto --->
                         <td>
                             <p> < Nombre del docente > </p>
                         </td>
-                        <td>Fecha</td>
+                        <td><b>Fecha</b></td>
                         <td><input type="date" name="fecha"></td>
-                        <td>Hora de entrada</td>
+                        <td><b>Hora de entrada</b></td>
                         <td><input type="time" name="hora_entrada"></td>
-                        <td>Hora de salida</td>
+                        <td><b>Hora de salida</b></td>
                         <td><input type="time" name="hora_salida"></td>
                     </tr>
                     <tr>
-                        <td>Grupo</td> <!--- esto luego será un menú desplegable automático con los grupos que tiene asignados el docente que inició sesión --->
+                        <td><b>Grupo</b></td> <!--- esto luego será un menú desplegable automático con los grupos que tiene asignados el docente que inició sesión --->
                             <td>
                                 <select id="grupo" name="grupo">
                                     <option value="" selected disabled>Seleccione un grupo</option>
@@ -39,7 +39,7 @@
                                     <option value="3MI">3°MI</option>
                                 </select>
                             </td>
-                        <td>Turno</td>
+                        <td><b>Turno</b></td>
                         <td>
                             <select name="turno"> <!--- esto luego será rellenado automáticamente con el turno que tiene asignado el docente que inició sesión --->
                                 <option value="M">Mañana</option>
@@ -47,7 +47,7 @@
                                 <option value="N">Noche</option>
                             </select>
                         </td>
-                        <td>Asignatura</td> <!--- esto luego será un menú desplegable automático con las asignaturas asignadas al usuario que inició sesión o rellenado automáticamente si tiene una sola asignatura --->
+                        <td><b>Asignatura</b></td> <!--- esto luego será un menú desplegable automático con las asignaturas asignadas al usuario que inició sesión o rellenado automáticamente si tiene una sola asignatura --->
                         <td>
                             <select id="asignatura" name="asignatura">
                                     <option value="" selected disabled>Seleccione una asignatura</option>
@@ -57,7 +57,7 @@
                                     <option value="UTULAB"> Tutoría de Proyecto UTULAB</option>
                             </select>
                         </td>
-                        <td>Aula</td>
+                        <td><b>Aula</b></td>
                         <td>
                             <select name="aula">
                                 <option value="" selected disabled>Seleccione un aula</option>
@@ -86,6 +86,9 @@
                         <td>
                             <b>Estado del Equipo</b>
                         </td>
+                        <td>
+                            <b>Descripción del problema</b>
+                        </td>
                     </tr>
                     <tr>
                         <td>1</td>
@@ -105,6 +108,7 @@
                                 <option value="Daniado">Dañado</option>
                             </select>
                         </td>
+                        <td colspan="3"><textarea name="descripcion" maxlength="255" rows="5" cols="50" placeholder="Escribe aquí..."></textarea></td> <!--- Bloquear tamaño con CSS--->
                     </tr>
                     <tr>
                         <td>2</td>
@@ -124,6 +128,7 @@
                                 <option value="Danado">Dañado</option>
                             </select>
                         </td>
+                        <td colspan="3"><textarea name="descripcion" maxlength="255" rows="5" cols="50" placeholder="Escribe aquí..."></textarea></td> <!--- Bloquear tamaño con CSS--->
                     </tr>
                     <tr>
                         <td>3</td>
@@ -143,6 +148,7 @@
                                 <option value="Danado">Dañado</option>
                             </select>
                         </td>
+                        <td colspan="3"><textarea name="descripcion" maxlength="255" rows="5" cols="50" placeholder="Escribe aquí..."></textarea></td> <!--- Bloquear tamaño con CSS--->
                     </tr>
                     <tr>
                         <td>4</td>
@@ -162,6 +168,7 @@
                                 <option value="Danado">Dañado</option>
                             </select>
                         </td>
+                        <td colspan="3"><textarea name="descripcion" maxlength="255" rows="5" cols="50" placeholder="Escribe aquí..."></textarea></td> <!--- Bloquear tamaño con CSS--->
                     </tr>
                     <tr>
                         <td>5</td>
@@ -181,6 +188,7 @@
                                 <option value="Danado">Dañado</option>
                             </select>
                         </td>
+                        <td colspan="3"><textarea name="descripcion" maxlength="255" rows="5" cols="50" placeholder="Escribe aquí..."></textarea></td> <!--- Bloquear tamaño con CSS--->
                     </tr>
                     <tr>
                         <td>6</td>
@@ -200,6 +208,7 @@
                                 <option value="Danado">Dañado</option>
                             </select>
                         </td>
+                        <td colspan="3"><textarea name="descripcion" maxlength="255" rows="5" cols="50" placeholder="Escribe aquí..."></textarea></td> <!--- Bloquear tamaño con CSS--->
                     </tr>
                     <tr>
                         <td>7</td>
@@ -219,6 +228,7 @@
                                 <option value="Danado">Dañado</option>
                             </select>
                         </td>
+                        <td colspan="3"><textarea name="descripcion" maxlength="255" rows="5" cols="50" placeholder="Escribe aquí..."></textarea></td> <!--- Bloquear tamaño con CSS--->
                     </tr>
                     <tr>
                         <td>8</td>
@@ -238,6 +248,7 @@
                                 <option value="Danado">Dañado</option>
                             </select>
                         </td>
+                        <td colspan="3"><textarea name="descripcion" maxlength="255" rows="5" cols="50" placeholder="Escribe aquí..."></textarea></td> <!--- Bloquear tamaño con CSS--->
                     </tr>
                     <tr>
                         <td>9</td>
@@ -257,6 +268,7 @@
                                 <option value="Danado">Dañado</option>
                             </select>
                         </td>
+                        <td colspan="3"><textarea name="descripcion" maxlength="255" rows="5" cols="50" placeholder="Escribe aquí..."></textarea></td> <!--- Bloquear tamaño con CSS--->
                     </tr>
                     <tr>
                         <td>10</td>
@@ -276,6 +288,7 @@
                                 <option value="Danado">Dañado</option>
                             </select>
                         </td>
+                        <td colspan="3"><textarea name="descripcion" maxlength="255" rows="5" cols="50" placeholder="Escribe aquí..."></textarea></td> <!--- Bloquear tamaño con CSS--->
                     </tr>
                     <tr>
                         <td>11</td>
@@ -295,6 +308,7 @@
                                 <option value="Danado">Dañado</option>
                             </select>
                         </td>
+                        <td colspan="3"><textarea name="descripcion" maxlength="255" rows="5" cols="50" placeholder="Escribe aquí..."></textarea></td> <!--- Bloquear tamaño con CSS--->
                     </tr>
                     <tr>
                         <td>12</td>
@@ -314,6 +328,7 @@
                                 <option value="Danado">Dañado</option>
                             </select>
                         </td>
+                        <td colspan="3"><textarea name="descripcion" maxlength="255" rows="5" cols="50" placeholder="Escribe aquí..."></textarea></td> <!--- Bloquear tamaño con CSS--->
                     </tr>
                     <tr>
                         <td>13</td>
@@ -333,6 +348,7 @@
                                 <option value="Danado">Dañado</option>
                             </select>
                         </td>
+                        <td colspan="3"><textarea name="descripcion" maxlength="255" rows="5" cols="50" placeholder="Escribe aquí..."></textarea></td> <!--- Bloquear tamaño con CSS--->
                     </tr>
                     <tr>
                         <td>14</td>
@@ -352,6 +368,7 @@
                                 <option value="Danado">Dañado</option>
                             </select>
                         </td>
+                        <td colspan="3"><textarea name="descripcion" maxlength="255" rows="5" cols="50" placeholder="Escribe aquí..."></textarea></td> <!--- Bloquear tamaño con CSS--->
                     </tr>
                     <tr>
                         <td>15</td>
@@ -371,6 +388,7 @@
                                 <option value="Danado">Dañado</option>
                             </select>
                         </td>
+                        <td colspan="3"><textarea name="descripcion" maxlength="255" rows="5" cols="50" placeholder="Escribe aquí..."></textarea></td> <!--- Bloquear tamaño con CSS--->
                     </tr>
                     <tr>
                         <td>16</td>
@@ -390,6 +408,7 @@
                                 <option value="Danado">Dañado</option>
                             </select>
                         </td>
+                        <td colspan="3"><textarea name="descripcion" maxlength="255" rows="5" cols="50" placeholder="Escribe aquí..."></textarea></td> <!--- Bloquear tamaño con CSS--->
                     </tr>
                     <tr>
                         <td colspan="3" align="center">
