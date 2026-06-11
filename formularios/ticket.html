@@ -4,6 +4,74 @@
     <meta charset="UTF-8">
 </head>
 <body>
-
+    <header>
+        <img src="/gestick github/gestick/imagenes/logo-app.png" alt="Logo GesTIck">
+    </header>
+    <main>
+        <section>
+            <form action="procesar_ticket.php" method="POST" name="datos">
+                <table border="1" cellpadding="10">
+                    <tr>
+                        <td colspan="4" align="center">
+                            <b>Ticket</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>ID</td>
+                        <td> < id del ticket > </td> <!--- luego será rellenado automáticamente con el ID del ticket generado --->
+                        <td>Fecha de inicio</td>
+                        <td> < fecha del ticket > </td> <!--- luego será rellenada automáticamente con la fecha de creación del ticket --->
+                    </tr>
+                    <tr>
+                        <td>Descripción</td>
+                        <td colspan="3"> < descripción del problema > </td> <!--- luego será rellenada automáticamente con la descripción del problema ingresada por el docente al crear el ticket --->
+                    </tr>
+                    <tr>
+                        <td>Equipo</td>
+                        <td> < equipo a reparar > </td> <!--- luego será rellenado automáticamente con el equipo asignado al ticket --->
+                        <td>Estudiante </td>
+                        <td> < nombre y apellido del estudiante, grupo > </td> <!--- luego será rellenado automáticamente con el nombre del estudiante que usaba ese equipo --->
+                    </tr>
+                    <tr>
+                        <td>Técnico</td>
+                        <td> < técnico asignado > </td>
+                        <td>Prioridad</td>
+                        <td>
+                            <select name="prioridad">
+                                <option value="baja">Baja</option>
+                                <option value="media">Media</option>
+                                <option value="alta">Alta</option>
+                            </select>
+                    </tr>
+                    <tr>
+                        <td>Estado</td>
+                        <td>
+                            <select name="estado">
+                                <option value="resolver">Por resolver</option>
+                                <option value="en_progreso">En progreso</option>
+                                <option value="resuelto">Resuelto</option>
+                            </select>
+                        </td>
+                        <td>Fecha de finalización</td>
+                        <td>
+                            <input type="date" name="fecha_fin">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Solución</td>
+                        <td colspan="3">
+                            <textarea name="solucion" maxlength="255" rows="5" cols="60" placeholder="Ingrese el trabajo realizado..."></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="4" align="center"><input type="submit" value="Enviar"></td>
+                    </tr>
+                </table>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>GesTIck - Sistema de Gestión de Recursos y Soporte de Informática</p>
+    </footer>
 </body>
 </html>
