@@ -1,0 +1,109 @@
+body {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: #1a2636;
+    background-color: #f0f4f8;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #0f2d6b;
+    padding: 15px;
+}
+
+header img {
+    height: 50px;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+section {
+    width: 100%;
+    max-width: 900px;
+    margin: auto;
+}
+
+form[name="datos_registro"] {
+    background-color: white;
+    border: 1px solid #d1dbe8;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table tr:first-child td {
+    background-color: #0f2d6b;
+    color: white;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    padding: 15px;
+}
+
+td {
+    border: 1px solid #d1dbe8;
+    padding: 12px;
+    vertical-align: middle;
+}
+
+td:first-child {
+    background-color: #f7f9fc;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #d1dbe8;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+table tr:last-child td {
+    text-align: center;
+    padding: 15px;
+}
+
+input[type="submit"] {
+    background-color: #1a56db;
+    color: white;
+    border: none;
+    padding: 10px 25px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 6px;
+}
+
+input[type="submit"]:hover {
+    background-color: #1240a8;
+}
+
+footer {
+    background-color: #0f2d6b;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 12px;
+}

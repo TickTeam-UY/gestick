@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>GesTIck - Registro</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="registrostyle.css">
+    </head>
+    <body>
+        <header>
+            <img src="logo-app.png" alt="Logo GesTIck">
+        </header>
+        <main>
+            <section>
+                <form action="procesar_registro.php" method="POST" name="datos_registro">
+                    <table border="1" cellpadding="10">
+                        <tr>
+                            <td colspan="2" align="center">
+                                <b>Registro de usuario</b>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Nombre</td>
+                            <td><input type="text" name="nombre" size="25" maxlength="100"></td>
+                        </tr>
+                        <tr>
+                            <td>Apellido</td>
+                            <td><input type="text" name="apellido" size="25" maxlength="100"></td>
+                        </tr>
+                        <tr>
+                            <td>Rol</td>
+                            <td>
+                                <select id="rol" name="rol" onchange="mostrarCampos()">
+                                    <option value="" selected disabled>Seleccione un rol</option>
+                                    <option value="Docente">Docente</option>
+                                    <option value="Tecnico">Técnico</option>
+                                    <option value="Administrador">Administrador</option>
+                                </select>
+                                </td>
+                        </tr>
+                        <tr id="filaTurno" hidden>
+                            <td>Turno</td>
+                            <td>
+                                <select id="turno" name="turno">
+                                    <option value="Mañana">Mañana</option>
+                                    <option value="Tarde">Tarde</option>
+                                    <option value="Noche">Noche</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr id="filaAsignatura" hidden>
+                            <td>Asignatura</td>
+                            <td><input type="checkbox" name="asignatura" value="Programacion"> Programación Full Stack<br>
+                                <input type="checkbox" name="asignatura" value="Sistemas"> Sistemas Operativos<br>
+                                <input type="checkbox" name="asignatura" value="Ingenieria"> Ingeniería de Software<br>
+                                <input type="checkbox" name="asignatura" value="UTULAB"> Tutoría de Proyecto UTULAB<br>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Correo electrónico</td>
+                            <td><input type="email" name="correo" size="25" maxlength="254"></td>
+                        </tr>
+                        <tr>
+                            <td>Contraseña</td>
+                            <td><input type="password" name="contrasenia" size="25" maxlength="25"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" align="center"><input type="submit" value="Añadir al sistema"></td>
+                        </tr>
+                    </table>
+                </form>
+            </section>
+        </main>
+        <script>
+            function mostrarCampos() {
+                let rol = document.getElementById("rol").value;
+
+                document.getElementById("filaTurno").hidden = true;
+                document.getElementById("filaAsignatura").hidden = true;
+
+                if (rol == "Docente") {
+                    document.getElementById("filaTurno").hidden = false;
+                    document.getElementById("filaAsignatura").hidden = false;
+                }
+
+                if (rol == "Tecnico") {
+                    document.getElementById("filaTurno").hidden = false;
+                }
+            }
+            window.onload = mostrarCampos;
+        </script>
+        <footer>
+            <p>GesTIck - Sistema de Gestión de Recursos y Soporte de Informática</p>
+        </footer>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
