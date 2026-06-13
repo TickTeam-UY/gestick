@@ -21,16 +21,16 @@
                         <td>Docente</td> <!--- esto luego será rellenado automáticamente con el nombre del docente que inició sesión, se podria sacar de la pantalla para achicar la planilla y que se vea al final como texto --->
                         <td>< Nombre del docente > </td>
                         <td>Fecha</td>
-                        <td><input type="date" name="fecha"></td>
+                        <td><input type="date" name="fecha" required></td>
                         <td>Hora de entrada</td>
-                        <td><input type="time" name="hora_entrada"></td>
+                        <td><input type="time" name="hora_entrada" required></td>
                         <td>Hora de salida</td>
-                        <td><input type="time" name="hora_salida"></td>
+                        <td><input type="time" name="hora_salida" required></td>
                     </tr>
                     <tr>
                         <td>Grupo</td> <!--- esto luego será un menú desplegable automático con los grupos que tiene asignados el docente que inició sesión --->
                             <td>
-                                <select id="grupo" name="grupo">
+                                <select id="grupo" name="grupo" required>
                                     <option value="" selected disabled>Seleccione un grupo</option>
                                     <option value="3MF">3°MF</option>
                                     <option value="3MH">3°MH</option>
@@ -39,15 +39,16 @@
                             </td>
                         <td>Turno</td>
                         <td>
-                            <select name="turno"> <!--- esto luego será rellenado automáticamente con el turno que tiene asignado el docente que inició sesión --->
-                                <option value="M">Mañana</option>
-                                <option value="T">Tarde</option>
-                                <option value="N">Noche</option>
+                            <select name="turno" required> <!--- esto luego será rellenado automáticamente con el turno que tiene asignado el docente que inició sesión --->
+                                <option value="" selected disabled>Seleccione un turno</option>
+                                <option value="Mañana">Mañana</option>
+                                <option value="Tarde">Tarde</option>
+                                <option value="Noche">Noche</option>
                             </select>
                         </td>
                         <td>Asignatura</td> <!--- esto luego será un menú desplegable automático con las asignaturas asignadas al usuario que inició sesión o rellenado automáticamente si tiene una sola asignatura --->
                         <td>
-                            <select id="asignatura" name="asignatura">
+                            <select id="asignatura" name="asignatura" required>
                                     <option value="" selected disabled>Seleccione una asignatura</option>
                                     <option value="Programacion"> Programación Full Stack</option>
                                     <option value="Sistemas"> Sistemas Operativos</option>
@@ -57,7 +58,7 @@
                         </td>
                         <td>Aula</td>
                         <td>
-                            <select name="aula">
+                            <select name="aula" required>
                                 <option value="" selected disabled>Seleccione un aula</option>
                                 <option value="Lab1">Laboratorio 1</option>
                                 <option value="Lab2">Laboratorio 2</option>
@@ -401,7 +402,7 @@
                         <td colspan="3"><textarea name="descripcion" maxlength="255" rows="5" cols="50" placeholder="Escribe aquí..."></textarea></td> <!--- Bloquear tamaño con CSS--->
                     </tr>
                     <tr>
-                        <td colspan="3" align="center">
+                        <td colspan="4" align="center">
                             <input type="submit" value="Guardar planilla"></td>
                     </tr>
                 </table>
