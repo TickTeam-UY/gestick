@@ -19,14 +19,14 @@
                     </tr>
                     <tr>
                         <td>Fecha de préstamo</td>
-                        <td><input type="date" name="fecha_prestamo"></td>
+                        <td><input type="date" name="fecha_prestamo" required></td>
                         <td>Fecha de devolución</td>
                         <td><input type="date" name="fecha_devolucion"></td>
                     </tr>
                     <tr>
                         <td>Alumno</td>
                         <td>
-                            <select id="alumno" name="alumno">
+                            <select id="alumno" name="alumno" required>
                                     <option value="" selected disabled>Seleccione un alumno</option>
                                     <option value="54741781">Samara González</option>
                                     <option value="12345678">Rodrigo Rodríguez</option>
@@ -36,7 +36,7 @@
                         </td>
                         <td>Grupo</td>
                         <td>
-                            <select id="grupo" name="grupo">
+                            <select id="grupo" name="grupo" required> <!--- Podría ser automático si ya tenemos el estudiante cargado en la bd -->
                                     <option value="" selected disabled>Seleccione un grupo</option>
                                     <option value="3MF">3°MF</option>
                                     <option value="3MH">3°MH</option>
@@ -47,7 +47,7 @@
                     <tr>
                         <td>Equipo</td>
                         <td>
-                            <select id="equipo" name="equipo">
+                            <select id="equipo" name="equipo" required>
                                 <option value="" selected disabled>Seleccione un equipo</option>
                                 <option value="atlas">Laptop Atlas</option>
                                 <option value="denebola">Laptop Denébola</option>
