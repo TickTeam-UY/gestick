@@ -10,7 +10,7 @@
         </header>
         <main>
             <section>
-                <form action="procesar_registro.php" method="POST" name="datos_registro">
+                <form action="procesar_registro.php" method="POST" name="datos_registro" onsubmit="return validarFormulario()">
                     <table border="1" cellpadding="10">
                         <tr>
                             <td colspan="2" align="center">
@@ -19,16 +19,16 @@
                         </tr>
                         <tr>
                             <td>Nombre</td>
-                            <td><input type="text" name="nombre" size="25" maxlength="100"></td>
+                            <td><input type="text" name="nombre" size="25" maxlength="100" required></td>
                         </tr>
                         <tr>
                             <td>Apellido</td>
-                            <td><input type="text" name="apellido" size="25" maxlength="100"></td>
+                            <td><input type="text" name="apellido" size="25" maxlength="100" required></td>
                         </tr>
                         <tr>
                             <td>Rol</td>
                             <td>
-                                <select id="rol" name="rol" onchange="mostrarCampos()">
+                                <select id="rol" name="rol" required onchange="mostrarCampos()">
                                     <option value="" selected disabled>Seleccione un rol</option>
                                     <option value="Docente">Docente</option>
                                     <option value="Tecnico">Técnico</option>
@@ -39,7 +39,8 @@
                         <tr id="filaTurno" hidden>
                             <td>Turno</td>
                             <td>
-                                <select id="turno" name="turno">
+                                <select id="turno" name="turno" required>
+                                    <option value="" selected disabled>Seleccione un turno</option>
                                     <option value="Mañana">Mañana</option>
                                     <option value="Tarde">Tarde</option>
                                     <option value="Noche">Noche</option>
@@ -48,19 +49,19 @@
                         </tr>
                         <tr id="filaAsignatura" hidden>
                             <td>Asignatura</td>
-                            <td><input type="checkbox" name="asignatura" value="Programacion"> Programación Full Stack<br>
-                                <input type="checkbox" name="asignatura" value="Sistemas"> Sistemas Operativos<br>
-                                <input type="checkbox" name="asignatura" value="Ingenieria"> Ingeniería de Software<br>
-                                <input type="checkbox" name="asignatura" value="UTULAB"> Tutoría de Proyecto UTULAB<br>
+                            <td><input type="checkbox" name="asignatura[]" value="Programacion"> Programación Full Stack<br>
+                                <input type="checkbox" name="asignatura[]" value="Sistemas"> Sistemas Operativos<br>
+                                <input type="checkbox" name="asignatura[]" value="Ingenieria"> Ingeniería de Software<br>
+                                <input type="checkbox" name="asignatura[]" value="UTULAB"> Tutoría de Proyecto UTULAB<br>
                             </td>
                         </tr>
                         <tr>
                             <td>Correo electrónico</td>
-                            <td><input type="email" name="correo" size="25" maxlength="254"></td>
+                            <td><input type="email" name="correo" size="25" maxlength="254" required></td>
                         </tr>
                         <tr>
                             <td>Contraseña</td>
-                            <td><input type="password" name="contrasenia" size="25" maxlength="25"></td>
+                            <td><input type="password" name="contrasenia" size="25" maxlength="25" required></td>
                         </tr>
                         <tr>
                             <td colspan="2" align="center"><input type="submit" value="Añadir al sistema"></td>
@@ -84,6 +85,25 @@
                 if (rol == "Tecnico") {
                     document.getElementById("filaTurno").hidden = false;
                 }
+            }
+            function validarFormulario() {
+                let rol = document.getElementById("rol").value;
+
+                if (rol == "Docente") {
+                    let asignaturas = document.getElementsByName("asignatura[]");
+                    let seleccionada = false;
+                    for (let i = 0; i < asignaturas.length; i++) {
+                        if (asignaturas[i].checked) {
+                            seleccionada = true;
+                            break;
+                        }
+                    }
+                    if (!seleccionada) {
+                        alert("Debe seleccionar al menos una asignatura.");
+                        return false;
+                    }
+                }
+                return true;
             }
             window.onload = mostrarCampos;
         </script>
