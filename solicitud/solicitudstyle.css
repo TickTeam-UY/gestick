@@ -22,18 +22,20 @@ header {
 
 header img {
     height: 50px;
+    max-width: 100%;
 }
 
 /* Contenido principal */
 
 main {
     flex: 1;
-    padding: 20px;
+    padding: 15px;
 }
 
-section {
-    width: 100%;
-    max-width: 900px;
+/* Mobile First */
+
+.contenedor-solicitud {
+    width: 95%;
     margin: auto;
 }
 
@@ -48,14 +50,15 @@ form[name="datos"] {
 
 /* Tabla */
 
-table {
+.tabla-solicitud {
     width: 100%;
     border-collapse: collapse;
+    background-color: white;
 }
 
 /* Título */
 
-table tr:first-child td {
+.tabla-solicitud tr:first-child td {
     background-color: #0f2d6b;
     color: white;
     text-align: center;
@@ -126,4 +129,21 @@ footer {
     color: white;
     text-align: center;
     padding: 10px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 12px;
+}
+
+/* Tablet y escritorio */
+
+@media (min-width: 768px) {
+    main {
+        padding: 20px;
+    }
+
+    .contenedor-solicitud {
+        max-width: 900px;
+    }
 }

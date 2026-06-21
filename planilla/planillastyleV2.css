@@ -12,21 +12,22 @@ header {
 
 header img {
     height: 60px;
+    max-width: 100%;
 }
 
-section {
-    width: 800px;
+/* Mobile First */
+.contenedor-planilla {
+    width: 95%;
     margin: 20px auto;
-    border-radius: 20px;
-    overflow: hidden;
 }
 
-table {
+.tabla-planilla {
     width: 100%;
     background-color: white;
     margin-bottom: 20px;
     border-radius: 20px;
     overflow: hidden;
+    border-collapse: collapse;
 }
 
 td {
@@ -41,9 +42,15 @@ tr:first-child {
 }
 
 input,
-select {
+select,
+textarea {
     width: 100%;
     padding: 5px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: none;
 }
 
 input[type="submit"] {
@@ -61,4 +68,24 @@ footer {
     color: white;
     text-align: center;
     padding: 10px;
+}
+
+/* Scroll horizontal para tablas grandes */
+.tabla-planilla {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+/* Escritorio */
+@media (min-width: 768px) {
+    .contenedor-planilla {
+        max-width: 1200px;
+    }
+
+    .tabla-planilla {
+        display: table;
+        overflow-x: visible;
+        white-space: normal;
+    }
 }

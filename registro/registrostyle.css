@@ -17,16 +17,18 @@ header {
 
 header img {
     height: 50px;
+    max-width: 100%;
 }
 
 main {
     flex: 1;
-    padding: 20px;
+    padding: 15px;
 }
 
-section {
-    width: 100%;
-    max-width: 900px;
+/* Mobile First */
+
+.contenedor-registro {
+    width: 95%;
     margin: auto;
 }
 
@@ -37,12 +39,13 @@ form[name="datos_registro"] {
     overflow: hidden;
 }
 
-table {
+.tabla-registro {
     width: 100%;
     border-collapse: collapse;
+    background-color: white;
 }
 
-table tr:first-child td {
+.tabla-registro tr:first-child td {
     background-color: #0f2d6b;
     color: white;
     text-align: center;
@@ -77,7 +80,7 @@ input[type="checkbox"] {
     margin-right: 8px;
 }
 
-table tr:last-child td {
+.tabla-registro tr:last-child td {
     text-align: center;
     padding: 15px;
 }
@@ -106,4 +109,16 @@ footer {
 footer p {
     margin: 0;
     font-size: 12px;
+}
+
+/* Tablet y escritorio */
+
+@media (min-width: 768px) {
+    main {
+        padding: 20px;
+    }
+
+    .contenedor-registro {
+        max-width: 900px;
+    }
 }

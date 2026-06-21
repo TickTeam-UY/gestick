@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GesTIck - Ticket</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="ticketstyle.css" rel="stylesheet">
 </head>
@@ -11,9 +12,9 @@
         <img src="logo-app.png" alt="Logo GesTIck">
     </header>
     <main>
-        <section>
+        <section class="contenedor-ticket">
             <form action="procesar_ticket.php" method="POST" name="datos">
-                <table border="1" cellpadding="10">
+                <table class="tabla-ticket" border="1" cellpadding="10">
                     <tr>
                         <td colspan="4" align="center">
                             <b>Ticket</b>
@@ -45,6 +46,7 @@
                                 <option value="media">Media</option>
                                 <option value="alta">Alta</option>
                             </select>
+                        </td>
                     </tr>
                     <tr>
                         <td>Estado</td>
