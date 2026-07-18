@@ -1,0 +1,91 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f4f8;
+    margin: 0;
+}
+
+header {
+    background-color: #0f2d6b;
+    padding: 15px;
+    text-align: left;
+}
+
+header img {
+    height: 60px;
+    max-width: 100%;
+}
+
+/* Mobile First */
+.contenedor-planilla {
+    width: 95%;
+    margin: 20px auto;
+}
+
+.tabla-planilla {
+    width: 100%;
+    background-color: white;
+    margin-bottom: 20px;
+    border-radius: 20px;
+    overflow: hidden;
+    border-collapse: collapse;
+}
+
+td {
+    border: 1px solid #cccccc;
+    padding: 10px;
+}
+
+tr:first-child {
+    background-color: #0f2d6b;
+    color: white;
+    font-weight: bold;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+textarea {
+    resize: none;
+}
+
+input[type="submit"] {
+    width: auto;
+    background-color: #1a56db;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+footer {
+    background-color: #0f2d6b;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Scroll horizontal para tablas grandes */
+.tabla-planilla {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+/* Escritorio */
+@media (min-width: 768px) {
+    .contenedor-planilla {
+        max-width: 1200px;
+    }
+
+    .tabla-planilla {
+        display: table;
+        overflow-x: visible;
+        white-space: normal;
+    }
+}

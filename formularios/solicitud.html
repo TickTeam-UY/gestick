@@ -2,16 +2,19 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>GesTIck - Solicitud</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="solicitudstyle.css" rel="stylesheet">
 </head>
 <body>
     <header>
-        <img src="/gestick github/gestick/imagenes/logo-app.png" alt="Logo GesTIck">
+        <img src="logo-app.png" alt="Logo GesTIck">
     </header>
     <main>
-        <section>
+        <section class="contenedor-solicitud">
             <form action="procesar_solicitud.php" method="POST" name="datos">
-                <table border="1" cellpadding="10">
+                <table class="tabla-solicitud" border="1" cellpadding="10">
                         <tr>
                             <td colspan="4" align="center">
                                 <b>Solicitud</b>
@@ -43,5 +46,6 @@
     <footer>
         <p>GesTIck - Sistema de Gestión de Recursos y Soporte de Informática</p>
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
