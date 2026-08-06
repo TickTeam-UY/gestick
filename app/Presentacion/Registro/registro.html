@@ -1,118 +1,87 @@
 <!DOCTYPE html>
 <html lang="es">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>GesTIck - Registro</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link href="registrostyle.css" rel="stylesheet">
-    </head>
-    <body>
-        <header>
-            <img src="/gestick github/gestick/imagenes/logo-app.png" alt="Logo GesTIck">
-        </header>
-        <main>
-            <section class="contenedor-registro">
-                <form action="procesar_registro.php" method="POST" name="datos_registro" onsubmit="return validarFormulario()">
-                    <table class="tabla-registro" border="1" cellpadding="10">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GesTIck - Registro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="registrostyle.css">
+</head>
+<body>
+
+
+    <main>
+        <section class="contenedor-registro">
+            <div class="marco-registro">
+
+   
+                <div class="contenedor-logo">
+                    <img class="logo-registro" src="/imagenes/logo-app.png" alt="Logo GesTIck">
+                </div>
+
+                <form action="procesar_registro.php" method="POST" name="datos_registro" onsubmit="
+                    if (document.getElementById('contrasenia').value !== document.getElementById('repetir_contrasenia').value) {
+                        alert('Las contraseñas no coinciden.');
+                        return false;
+                    }
+                ">
+                    <table class="tabla-registro">
                         <tr>
-                            <td colspan="2" align="center">
-                                <b>Registro de usuario</b>
+                            <th colspan="2">Crear un usuario</th>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <label for="nombre">Nombre</label>
+                                <input type="text" id="nombre" name="nombre" maxlength="100" required>
+                            </td>
+                            <td>
+                                <label for="apellido">Apellido</label>
+                                <input type="text" id="apellido" name="apellido" maxlength="100" required>
                             </td>
                         </tr>
+
                         <tr>
-                            <td>Nombre</td>
-                            <td><input type="text" name="nombre" size="25" maxlength="100" required></td>
-                        </tr>
-                        <tr>
-                            <td>Apellido</td>
-                            <td><input type="text" name="apellido" size="25" maxlength="100" required></td>
-                        </tr>
-                        <tr>
-                            <td>Rol</td>
                             <td>
-                                <select id="rol" name="rol" required onchange="mostrarCampos()">
+                                <label for="correo">Correo electrónico</label>
+                                <input type="email" id="correo" name="correo" maxlength="254" required>
+                            </td>
+                            <td>
+                                <label for="rol">Rol</label>
+                                <select id="rol" name="rol" required>
                                     <option value="" selected disabled>Seleccione un rol</option>
                                     <option value="Docente">Docente</option>
                                     <option value="Tecnico">Técnico</option>
                                     <option value="Administrador">Administrador</option>
                                 </select>
-                                </td>
+                            </td>
                         </tr>
-                        <tr id="filaTurno" hidden>
-                            <td>Turno</td>
+
+                        <tr>
                             <td>
-                                <select id="turno" name="turno" required>
-                                    <option value="" selected disabled>Seleccione un turno</option>
-                                    <option value="Mañana">Mañana</option>
-                                    <option value="Tarde">Tarde</option>
-                                    <option value="Noche">Noche</option>
-                                </select>
+                                <label for="contrasenia">Contraseña</label>
+                                <input type="password" id="contrasenia" name="contrasenia" maxlength="72" required>
+                            </td>
+                            <td>
+                                <label for="repetir_contrasenia">Repetir contraseña</label>
+                                <input type="password" id="repetir_contrasenia" name="repetir_contrasenia" maxlength="72" required>
                             </td>
                         </tr>
-                        <tr id="filaAsignatura" hidden>
-                            <td>Asignatura</td>
-                            <td><input type="checkbox" name="asignatura[]" value="Programacion"> Programación Full Stack<br>
-                                <input type="checkbox" name="asignatura[]" value="Sistemas"> Sistemas Operativos<br>
-                                <input type="checkbox" name="asignatura[]" value="Ingenieria"> Ingeniería de Software<br>
-                                <input type="checkbox" name="asignatura[]" value="UTULAB"> Tutoría de Proyecto UTULAB<br>
+
+                        <tr>
+                            <td colspan="2" class="fila-boton">
+                                <input type="submit" value="Registrar">
                             </td>
-                        </tr>
-                        <tr>
-                            <td>Correo electrónico</td>
-                            <td><input type="email" name="correo" size="25" maxlength="254" required></td>
-                        </tr>
-                        <tr>
-                            <td>Contraseña</td>
-                            <td><input type="password" name="contrasenia" size="25" maxlength="25" required></td>
-                        </tr>
-                        <tr>
-                            <td colspan="2" align="center"><input type="submit" value="Añadir al sistema"></td>
                         </tr>
                     </table>
                 </form>
-            </section>
-        </main>
-        <script>
-            function mostrarCampos() {
-                let rol = document.getElementById("rol").value;
+            </div>
+        </section>
+    </main>
 
-                document.getElementById("filaTurno").hidden = true;
-                document.getElementById("filaAsignatura").hidden = true;
+    <footer>
+        <p>GesTIck - Sistema de Gestión de Recursos y Soporte de Informática</p>
+    </footer>
 
-                if (rol == "Docente") {
-                    document.getElementById("filaTurno").hidden = false;
-                    document.getElementById("filaAsignatura").hidden = false;
-                }
-
-                if (rol == "Tecnico") {
-                    document.getElementById("filaTurno").hidden = false;
-                }
-            }
-            function validarFormulario() {
-                let rol = document.getElementById("rol").value;
-
-                if (rol == "Docente") {
-                    let asignaturas = document.getElementsByName("asignatura[]");
-                    let seleccionada = false;
-                    for (let i = 0; i < asignaturas.length; i++) {
-                        if (asignaturas[i].checked) {
-                            seleccionada = true;
-                            break;
-                        }
-                    }
-                    if (!seleccionada) {
-                        alert("Debe seleccionar al menos una asignatura.");
-                        return false;
-                    }
-                }
-                return true;
-            }
-            window.onload = mostrarCampos;
-        </script>
-        <footer>
-            <p>GesTIck - Sistema de Gestión de Recursos y Soporte de Informática</p>
-        </footer>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
+</body>
 </html>
