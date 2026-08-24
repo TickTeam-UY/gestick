@@ -1,0 +1,645 @@
+.encabezado-solicitudes-docente {
+    min-height: 150px;
+}
+
+.contenido-solicitudes-docente {
+    flex: 1;
+    width: min(1280px, calc(100% - 56px));
+    margin: 24px auto 34px;
+}
+
+.mensaje-solicitudes-docente {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    padding: 12px 15px;
+    border: 1px solid;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.mensaje-exito {
+    border-color: #a8dec2;
+    background: #effbf5;
+    color: #12673d;
+}
+
+.mensaje-error {
+    border-color: #efb5bd;
+    background: #fff1f3;
+    color: #8f2437;
+}
+
+.panel-bandeja-solicitudes {
+    overflow: hidden;
+    border: 1px solid var(--docente-borde);
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 5px 18px rgba(7, 20, 36, 0.07);
+}
+
+.barra-solicitudes-docente {
+    display: grid;
+    grid-template-columns: 165px minmax(180px, 1fr) minmax(230px, 330px) auto;
+    align-items: center;
+    gap: 16px;
+    min-height: 82px;
+    padding: 13px 18px;
+    border-bottom: 1px solid var(--docente-borde);
+}
+
+.orden-solicitudes-docente {
+    display: grid;
+    gap: 5px;
+}
+
+.orden-solicitudes-docente span {
+    color: #67768a;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.orden-solicitudes-docente select,
+.buscador-solicitudes-docente input {
+    width: 100%;
+    min-height: 39px;
+    border: 1px solid #ced9e6;
+    border-radius: 8px;
+    background: #fff;
+    color: #24334a;
+    font: 11px "Poppins", Arial, sans-serif;
+    outline: none;
+}
+
+.orden-solicitudes-docente select {
+    padding: 8px 10px;
+}
+
+.orden-solicitudes-docente select:focus,
+.buscador-solicitudes-docente input:focus {
+    border-color: var(--docente-azul-claro);
+    box-shadow: 0 0 0 3px rgba(87, 168, 208, 0.14);
+}
+
+.titulo-bandeja-solicitudes {
+    text-align: center;
+}
+
+.titulo-bandeja-solicitudes h2 {
+    margin: 0;
+    color: var(--docente-azul-oscuro);
+    font-size: 17px;
+}
+
+.buscador-solicitudes-docente {
+    position: relative;
+    display: block;
+}
+
+.buscador-solicitudes-docente input {
+    padding: 8px 42px 8px 12px;
+}
+
+.buscador-solicitudes-docente button {
+    position: absolute;
+    inset: 0 0 0 auto;
+    display: grid;
+    width: 40px;
+    place-items: center;
+    border: 0;
+    background: transparent;
+    color: #45637d;
+    cursor: pointer;
+}
+
+.boton-nueva-solicitud {
+    display: inline-flex;
+    min-height: 40px;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    border: 0;
+    border-radius: 8px;
+    padding: 8px 13px;
+    background: #17649c;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 650;
+    text-decoration: none;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.boton-nueva-solicitud:hover,
+.boton-nueva-solicitud:focus-visible {
+    background: #0f4f7d;
+    outline: none;
+}
+
+.resumen-bandeja-solicitudes {
+    display: flex;
+    min-height: 44px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 18px;
+    background: #f7f9fc;
+    color: #68778b;
+    font-size: 10px;
+}
+
+.resumen-bandeja-solicitudes a {
+    color: #075fa9;
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.grid-solicitudes-docente {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    padding: 18px;
+    background: #f4f7fb;
+}
+
+.tarjeta-solicitud-docente {
+    display: flex;
+    min-height: 178px;
+    flex-direction: column;
+    padding: 15px 16px;
+    border: 1px solid #d6e0ec;
+    border-radius: 11px;
+    background: #fff;
+    box-shadow: 0 3px 10px rgba(7, 20, 36, 0.05);
+    transition: border-color 0.16s ease, transform 0.16s ease;
+}
+
+.tarjeta-solicitud-docente:hover {
+    border-color: #83bdd8;
+    transform: translateY(-1px);
+}
+
+.tarjeta-solicitud-docente > header,
+.tarjeta-solicitud-docente > footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.id-solicitud-docente {
+    color: #17649c;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.tarjeta-solicitud-docente time {
+    color: #738196;
+    font-size: 10px;
+}
+
+.tarjeta-solicitud-docente h3 {
+    margin: 13px 0 6px;
+    overflow: hidden;
+    color: var(--docente-azul-oscuro);
+    font-size: 14px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.tarjeta-solicitud-docente > p {
+    display: -webkit-box;
+    margin: 0 0 14px;
+    overflow: hidden;
+    color: #5b6980;
+    font-size: 11px;
+    line-height: 1.55;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
+.tarjeta-solicitud-docente > footer {
+    margin-top: auto;
+    padding-top: 11px;
+    border-top: 1px solid #e5ebf3;
+}
+
+.estado-solicitud {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    padding: 5px 9px;
+    font-size: 9px;
+    font-weight: 650;
+}
+
+.estado-pendiente {
+    background: rgba(255, 176, 0, 0.16);
+    color: #805800;
+}
+
+.estado-en-proceso {
+    background: rgba(0, 114, 229, 0.12);
+    color: #075fa9;
+}
+
+.estado-completada,
+.estado-finalizada {
+    background: rgba(31, 173, 102, 0.13);
+    color: #147842;
+}
+
+.estado-cancelada {
+    background: rgba(213, 56, 68, 0.12);
+    color: #a82431;
+}
+
+.estado-neutro {
+    background: #eef2f7;
+    color: #536176;
+}
+
+.tarjeta-solicitud-docente footer button {
+    border: 0;
+    background: transparent;
+    color: #075fa9;
+    font: 600 10px "Poppins", Arial, sans-serif;
+    cursor: pointer;
+}
+
+.acciones-solicitud-docente {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.acciones-solicitud-docente form {
+    margin: 0;
+}
+
+.tarjeta-solicitud-docente footer .boton-cancelar-solicitud {
+    color: #b22936;
+}
+
+.tarjeta-solicitud-docente footer .boton-cancelar-solicitud:hover,
+.tarjeta-solicitud-docente footer .boton-cancelar-solicitud:focus-visible {
+    color: #7f1621;
+    text-decoration: underline;
+}
+
+.vacio-solicitudes-docente {
+    display: flex;
+    min-height: 340px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    background: #f4f7fb;
+    color: #68778b;
+    text-align: center;
+}
+
+.vacio-solicitudes-docente i {
+    margin-bottom: 10px;
+    color: var(--docente-azul-claro);
+    font-size: 34px;
+}
+
+.vacio-solicitudes-docente h3 {
+    margin: 0;
+    color: var(--docente-azul-oscuro);
+    font-size: 15px;
+}
+
+.vacio-solicitudes-docente p {
+    margin: 6px 0 0;
+    font-size: 11px;
+}
+
+.vacio-solicitudes-docente a,
+.vacio-solicitudes-docente button {
+    margin-top: 13px;
+    border: 0;
+    border-radius: 7px;
+    padding: 8px 12px;
+    background: #17649c;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 650;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.paginacion-solicitudes-docente {
+    display: flex;
+    min-height: 58px;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    padding: 10px 18px;
+    border-top: 1px solid var(--docente-borde);
+}
+
+.paginacion-solicitudes-docente > a,
+.paginacion-solicitudes-docente > span,
+.paginacion-solicitudes-docente div a {
+    color: #45566e;
+    font-size: 10px;
+    text-decoration: none;
+}
+
+.paginacion-solicitudes-docente div {
+    display: flex;
+    gap: 5px;
+}
+
+.paginacion-solicitudes-docente div a {
+    display: grid;
+    width: 30px;
+    height: 30px;
+    place-items: center;
+    border-radius: 7px;
+}
+
+.paginacion-solicitudes-docente div a.activo {
+    background: #192d4c;
+    color: #fff;
+}
+
+.paginacion-solicitudes-docente .deshabilitado {
+    color: #a1adbb;
+}
+
+.dialog-solicitud-docente {
+    width: min(560px, calc(100% - 28px));
+    max-height: calc(100vh - 32px);
+    overflow: auto;
+    padding: 0;
+    border: 0;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 22px 60px rgba(7, 20, 36, 0.28);
+}
+
+.dialog-solicitud-docente::backdrop {
+    background: rgba(7, 20, 36, 0.62);
+    backdrop-filter: blur(3px);
+}
+
+.formulario-crear-solicitud > header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 17px 20px;
+    border-bottom: 1px solid var(--docente-borde);
+}
+
+.formulario-crear-solicitud > header h2 {
+    margin: 0;
+    color: var(--docente-azul-oscuro);
+    font-size: 19px;
+}
+
+.formulario-crear-solicitud > header > button {
+    display: grid;
+    width: 34px;
+    height: 34px;
+    flex: 0 0 auto;
+    place-items: center;
+    border: 0;
+    border-radius: 8px;
+    background: #eef3f8;
+    color: #4f6076;
+    font-size: 21px;
+    cursor: pointer;
+}
+
+.cuerpo-crear-solicitud,
+.cuerpo-detalle-solicitud {
+    display: grid;
+    gap: 15px;
+    padding: 19px 20px;
+    background: #fbfcfe;
+}
+
+.fecha-nueva-solicitud {
+    justify-self: end;
+    color: #6c7a8d;
+    font-size: 10px;
+}
+
+.campo-solicitud-docente {
+    display: grid;
+    gap: 6px;
+}
+
+.campo-solicitud-docente > span {
+    color: #3e4d62;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.campo-solicitud-docente input,
+.campo-solicitud-docente textarea {
+    width: 100%;
+    border: 1px solid #ced9e6;
+    border-radius: 8px;
+    background: #fff;
+    color: #17263b;
+    font: 12px "Poppins", Arial, sans-serif;
+    outline: none;
+}
+
+.campo-solicitud-docente input {
+    min-height: 42px;
+    padding: 9px 11px;
+}
+
+.campo-solicitud-docente input[readonly] {
+    background: #f0f4f8;
+    color: #526176;
+}
+
+.campo-solicitud-docente textarea {
+    min-height: 122px;
+    resize: vertical;
+    padding: 10px 11px;
+    line-height: 1.55;
+}
+
+.campo-solicitud-docente input:focus,
+.campo-solicitud-docente textarea:focus {
+    border-color: var(--docente-azul-claro);
+    box-shadow: 0 0 0 3px rgba(87, 168, 208, 0.14);
+}
+
+.campo-solicitud-docente small {
+    color: #78869a;
+    font-size: 9px;
+}
+
+.campo-mensaje-solicitud small {
+    justify-self: end;
+}
+
+.formulario-crear-solicitud > footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 9px;
+    padding: 14px 20px;
+    border-top: 1px solid var(--docente-borde);
+}
+
+.formulario-crear-solicitud > footer button {
+    display: inline-flex;
+    min-height: 40px;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    border-radius: 8px;
+    padding: 8px 14px;
+    font: 600 11px "Poppins", Arial, sans-serif;
+    cursor: pointer;
+}
+
+.cancelar-solicitud {
+    border: 1px solid #cbd7e4;
+    background: #fff;
+    color: #43546c;
+}
+
+.enviar-solicitud {
+    border: 1px solid #17649c;
+    background: #17649c;
+    color: #fff;
+}
+
+.meta-detalle-solicitud {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.meta-detalle-solicitud time {
+    color: #6d7b8e;
+    font-size: 10px;
+}
+
+.cuerpo-detalle-solicitud dl {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin: 0;
+}
+
+.cuerpo-detalle-solicitud dl div,
+.cuerpo-detalle-solicitud section {
+    padding: 12px;
+    border: 1px solid #dbe4ee;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.cuerpo-detalle-solicitud dt,
+.cuerpo-detalle-solicitud h3 {
+    margin: 0 0 5px;
+    color: #748196;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+
+.cuerpo-detalle-solicitud dd,
+.cuerpo-detalle-solicitud p {
+    margin: 0;
+    color: #1d2c41;
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+@media (max-width: 1050px) {
+    .barra-solicitudes-docente {
+        grid-template-columns: 150px 1fr auto;
+    }
+
+    .titulo-bandeja-solicitudes {
+        display: none;
+    }
+}
+
+@media (max-width: 760px) {
+    .encabezado-solicitudes-docente {
+        min-height: 185px;
+    }
+
+    .contenido-solicitudes-docente {
+        width: calc(100% - 28px);
+        margin-top: 18px;
+    }
+
+    .barra-solicitudes-docente {
+        grid-template-columns: 1fr 1fr;
+        gap: 11px;
+        padding: 14px;
+    }
+
+    .buscador-solicitudes-docente {
+        grid-column: 1 / -1;
+        grid-row: 1;
+    }
+
+    .boton-nueva-solicitud {
+        align-self: end;
+    }
+
+    .grid-solicitudes-docente {
+        grid-template-columns: 1fr;
+        padding: 14px;
+    }
+}
+
+@media (max-width: 500px) {
+    .barra-solicitudes-docente {
+        grid-template-columns: 1fr;
+    }
+
+    .buscador-solicitudes-docente,
+    .boton-nueva-solicitud {
+        grid-column: auto;
+        grid-row: auto;
+    }
+
+    .orden-solicitudes-docente {
+        order: 2;
+    }
+
+    .boton-nueva-solicitud {
+        order: 3;
+        width: 100%;
+    }
+
+    .paginacion-solicitudes-docente {
+        gap: 10px;
+        justify-content: space-between;
+    }
+
+    .formulario-crear-solicitud > footer {
+        align-items: stretch;
+        flex-direction: column-reverse;
+    }
+
+    .formulario-crear-solicitud > footer button {
+        width: 100%;
+    }
+
+    .cuerpo-detalle-solicitud dl {
+        grid-template-columns: 1fr;
+    }
+}

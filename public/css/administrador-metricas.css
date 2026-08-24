@@ -1,0 +1,515 @@
+.contenido-metricas-admin {
+    width: min(1220px, calc(100% - 48px));
+}
+
+.panel-filtros-metricas-admin {
+    overflow: hidden;
+    margin-bottom: 18px;
+    border: 1px solid var(--admin-borde);
+    border-radius: 14px;
+    background: var(--admin-blanco);
+    box-shadow: var(--admin-sombra);
+}
+
+.panel-filtros-metricas-admin > header {
+    min-height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--admin-borde);
+    background: #fbfcfd;
+}
+
+.panel-filtros-metricas-admin h2,
+.panel-equipos-fallas-admin h2,
+.panel-prestamos-metricas-admin h2 {
+    margin: 0;
+    color: var(--admin-azul-950);
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.boton-descargar-metricas {
+    min-height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 9px 14px;
+    border: 1px solid var(--admin-azul-700);
+    border-radius: 8px;
+    color: var(--admin-blanco);
+    background: var(--admin-azul-700);
+    text-decoration: none;
+    white-space: nowrap;
+    font-size: 10px;
+    font-weight: 600;
+    transition: background-color 0.18s ease, transform 0.18s ease;
+}
+
+.boton-descargar-metricas:hover {
+    background: var(--admin-azul-900);
+    transform: translateY(-1px);
+}
+
+.filtros-metricas-admin {
+    display: grid;
+    grid-template-columns: minmax(140px, 0.8fr) minmax(140px, 0.8fr) minmax(180px, 1.15fr) minmax(170px, 1fr) auto auto;
+    gap: 11px;
+    align-items: end;
+    padding: 16px 18px;
+}
+
+.filtros-metricas-admin label {
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.filtros-metricas-admin label > span {
+    color: var(--admin-azul-800);
+    font-size: 9px;
+    font-weight: 600;
+}
+
+.filtros-metricas-admin input,
+.filtros-metricas-admin select {
+    width: 100%;
+    min-height: 39px;
+    padding: 8px 10px;
+    border: 1px solid #cbd6e4;
+    border-radius: 8px;
+    color: var(--admin-texto);
+    background: var(--admin-blanco);
+    outline: none;
+    font-size: 10px;
+}
+
+.filtros-metricas-admin input:focus,
+.filtros-metricas-admin select:focus {
+    border-color: var(--admin-azul-500);
+    box-shadow: 0 0 0 3px rgba(61, 143, 190, 0.1);
+}
+
+.boton-aplicar-metricas,
+.boton-limpiar-metricas {
+    min-height: 39px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 16px;
+    border: 1px solid var(--admin-azul-800);
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.boton-aplicar-metricas {
+    color: var(--admin-blanco);
+    background: var(--admin-azul-800);
+}
+
+.boton-aplicar-metricas:hover {
+    background: var(--admin-azul-950);
+}
+
+.boton-limpiar-metricas {
+    color: var(--admin-azul-800);
+    background: var(--admin-blanco);
+}
+
+.boton-limpiar-metricas:hover {
+    border-color: var(--admin-azul-500);
+    background: #f4f9fc;
+}
+
+.nota-filtros-metricas {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 0;
+    padding: 0 18px 14px;
+    color: var(--admin-texto-suave);
+    font-size: 9px;
+}
+
+.tarjetas-metricas-admin {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.tarjeta-metrica-admin {
+    position: relative;
+    min-width: 0;
+    min-height: 166px;
+    overflow: hidden;
+    padding: 17px 18px;
+    border: 1px solid var(--admin-borde);
+    border-radius: 13px;
+    background: var(--admin-blanco);
+    box-shadow: var(--admin-sombra);
+}
+
+.tarjeta-metrica-admin::before {
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 4px;
+    content: "";
+    background: var(--color-metrica, var(--admin-azul-500));
+}
+
+.metrica-tickets {
+    --color-metrica: #17649c;
+}
+
+.metrica-solicitudes {
+    --color-metrica: #704bc1;
+}
+
+.metrica-tiempo {
+    --color-metrica: #d18a13;
+}
+
+.metrica-planillas,
+.metrica-prestamos {
+    --color-metrica: #1b9b5b;
+}
+
+.cabecera-tarjeta-metrica {
+    min-height: 32px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    color: var(--admin-texto-suave);
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.cabecera-tarjeta-metrica i {
+    width: 30px;
+    height: 30px;
+    flex: 0 0 auto;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+    color: var(--color-metrica);
+    background: color-mix(in srgb, var(--color-metrica) 11%, white);
+    font-size: 14px;
+}
+
+.tarjeta-metrica-admin > strong {
+    display: block;
+    margin-top: 10px;
+    color: var(--admin-azul-950);
+    font-size: 32px;
+    line-height: 1;
+}
+
+.tarjeta-metrica-admin > strong.valor-tiempo-metrica {
+    font-size: clamp(22px, 2.3vw, 30px);
+}
+
+.tarjeta-metrica-admin > p {
+    margin: 7px 0 0;
+    color: var(--admin-texto-suave);
+    font-size: 9px;
+}
+
+.progreso-metrica {
+    height: 5px;
+    margin-top: 13px;
+    overflow: hidden;
+    border-radius: 999px;
+    background: #e9eef4;
+}
+
+.progreso-metrica i {
+    height: 100%;
+    display: block;
+    border-radius: inherit;
+    background: var(--color-metrica);
+}
+
+.grid-detalle-metricas-admin {
+    display: grid;
+    grid-template-columns: minmax(0, 1.8fr) minmax(280px, 0.8fr);
+    gap: 18px;
+    align-items: stretch;
+}
+
+.grid-detalle-metricas-admin > article:only-child {
+    grid-column: 1 / -1;
+}
+
+.panel-equipos-fallas-admin,
+.panel-prestamos-metricas-admin {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid var(--admin-borde);
+    border-radius: 14px;
+    background: var(--admin-blanco);
+    box-shadow: var(--admin-sombra);
+}
+
+.panel-equipos-fallas-admin > header,
+.panel-prestamos-metricas-admin > header {
+    min-height: 66px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 13px 17px;
+    border-bottom: 1px solid var(--admin-borde);
+    background: #fbfcfd;
+}
+
+.panel-equipos-fallas-admin > header > span {
+    color: var(--admin-texto-suave);
+    font-size: 9px;
+}
+
+.tabla-fallas-contenedor {
+    overflow-x: auto;
+}
+
+.tabla-fallas-metricas {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 10px;
+}
+
+.tabla-fallas-metricas th,
+.tabla-fallas-metricas td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #e7ecf2;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.tabla-fallas-metricas th {
+    color: var(--admin-texto-suave);
+    background: #f5f7fa;
+    text-transform: uppercase;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+}
+
+.tabla-fallas-metricas th:last-child,
+.tabla-fallas-metricas td:last-child {
+    text-align: right;
+}
+
+.tabla-fallas-metricas tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.tabla-fallas-metricas tbody tr:hover {
+    background: #f9fbfd;
+}
+
+.tabla-fallas-metricas strong {
+    color: var(--admin-azul-700);
+    font-size: 10px;
+}
+
+.cantidad-incidencias-metrica {
+    min-width: 27px;
+    display: inline-flex;
+    justify-content: center;
+    padding: 4px 7px;
+    border-radius: 999px;
+    color: #9a293c;
+    background: rgba(216, 58, 82, 0.1);
+    font-size: 8px;
+    font-weight: 700;
+}
+
+.sin-datos-metricas {
+    min-height: 165px;
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    gap: 7px;
+    padding: 20px;
+    color: var(--admin-texto-suave);
+    text-align: center;
+}
+
+.sin-datos-metricas i {
+    color: #1b9b5b;
+    font-size: 25px;
+}
+
+.sin-datos-metricas p {
+    margin: 0;
+    font-size: 9px;
+}
+
+.panel-prestamos-metricas-admin {
+    display: flex;
+    flex-direction: column;
+}
+
+.lista-prestamos-metricas {
+    display: grid;
+    gap: 10px;
+    padding: 15px;
+}
+
+.lista-prestamos-metricas > div {
+    min-height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 14px;
+    border: 1px solid #d7dfeb;
+    border-left: 4px solid var(--admin-azul-500);
+    border-radius: 9px;
+    background: #f8fafc;
+}
+
+.lista-prestamos-metricas > div:first-child {
+    border-left-color: #17649c;
+}
+
+.lista-prestamos-metricas span {
+    color: var(--admin-texto-suave);
+    font-size: 10px;
+}
+
+.lista-prestamos-metricas strong {
+    color: var(--admin-azul-950);
+    font-size: 25px;
+}
+
+.ver-detalle-metricas {
+    margin: auto 15px 15px;
+    padding: 8px;
+    border: 0;
+    color: var(--admin-azul-700);
+    background: transparent;
+    cursor: pointer;
+    font-size: 9px;
+    font-weight: 600;
+}
+
+.ver-detalle-metricas:hover {
+    text-decoration: underline;
+}
+
+.pie-acciones-metricas {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 16px;
+}
+
+.boton-descargar-inferior {
+    display: none;
+}
+
+.dialog-detalle-metricas {
+    width: min(560px, calc(100% - 28px));
+}
+
+.resumen-dialog-prestamos {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 11px;
+}
+
+.resumen-dialog-prestamos article {
+    min-height: 92px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 15px;
+    border: 1px solid #d7dfeb;
+    border-radius: 10px;
+    background: #f8fafc;
+}
+
+.resumen-dialog-prestamos span {
+    color: var(--admin-texto-suave);
+    font-size: 10px;
+}
+
+.resumen-dialog-prestamos strong {
+    color: var(--admin-azul-950);
+    font-size: 27px;
+}
+
+@media (max-width: 1100px) {
+    .filtros-metricas-admin {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .boton-aplicar-metricas,
+    .boton-limpiar-metricas {
+        width: 100%;
+    }
+}
+
+@media (max-width: 800px) {
+    .contenido-metricas-admin {
+        width: min(100% - 24px, 740px);
+    }
+
+    .grid-detalle-metricas-admin {
+        grid-template-columns: 1fr;
+    }
+
+    .panel-filtros-metricas-admin > header .boton-descargar-metricas {
+        display: none;
+    }
+
+    .boton-descargar-inferior {
+        display: inline-flex;
+    }
+
+    .tabla-fallas-metricas {
+        min-width: 620px;
+    }
+}
+
+@media (max-width: 520px) {
+    .panel-filtros-metricas-admin > header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .filtros-metricas-admin,
+    .resumen-dialog-prestamos {
+        grid-template-columns: 1fr;
+    }
+
+    .tarjetas-metricas-admin {
+        grid-template-columns: 1fr;
+    }
+
+    .tarjeta-metrica-admin {
+        min-height: 148px;
+    }
+
+    .boton-descargar-inferior {
+        width: 100%;
+    }
+
+    .acciones-dialog-admin {
+        flex-direction: column-reverse;
+    }
+
+    .acciones-dialog-admin .boton-admin {
+        width: 100%;
+    }
+}

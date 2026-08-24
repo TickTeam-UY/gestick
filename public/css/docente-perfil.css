@@ -1,0 +1,517 @@
+.encabezado-perfil-docente {
+    min-height: 136px;
+}
+
+.contenido-perfil-docente {
+    flex: 1;
+    padding: 24px;
+    background: #f4f7fa;
+}
+
+.mensaje-perfil-docente {
+    display: flex;
+    max-width: 1380px;
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto 16px;
+    border: 1px solid #b9ddca;
+    border-radius: 10px;
+    padding: 11px 14px;
+    background: #effaf4;
+    color: #147842;
+    font-size: 12px;
+}
+
+.mensaje-perfil-docente.mensaje-error {
+    border-color: #efc4c8;
+    background: #fff3f4;
+    color: #a82431;
+}
+
+.paneles-perfil-docente {
+    display: grid;
+    width: 100%;
+    max-width: 1380px;
+    min-height: 500px;
+    grid-template-columns: minmax(0, 1.12fr) minmax(390px, 0.88fr);
+    gap: 18px;
+    margin: 0 auto;
+}
+
+.panel-grupos-docente,
+.panel-cuenta-docente {
+    overflow: hidden;
+    border: 1px solid #cddaea;
+    border-radius: 14px;
+    background: #fff;
+    box-shadow: 0 8px 24px rgba(16, 40, 65, 0.07);
+}
+
+.cabecera-panel-perfil-docente {
+    display: flex;
+    min-height: 76px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 14px 20px;
+    border-bottom: 1px solid #d9e3ef;
+    background: linear-gradient(135deg, #ffffff 35%, #eef8fc 100%);
+}
+
+.cabecera-panel-perfil-docente div > span {
+    display: block;
+    margin-bottom: 2px;
+    color: #17649c;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.cabecera-panel-perfil-docente h2 {
+    margin: 0;
+    color: #071d36;
+    font-size: 18px;
+}
+
+.cabecera-panel-perfil-docente > strong {
+    border-radius: 999px;
+    padding: 6px 10px;
+    background: #e7f5fb;
+    color: #17649c;
+    font-size: 10px;
+}
+
+.cuenta-activa-docente {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 999px;
+    padding: 6px 10px;
+    background: #ebf9f1;
+    color: #147842;
+    font-size: 10px;
+    font-weight: 650;
+}
+
+.tabla-grupos-docente {
+    padding: 0 18px 18px;
+}
+
+.encabezados-grupos-docente,
+.fila-grupo-docente {
+    display: grid;
+    grid-template-columns: 1.25fr 0.8fr 1.1fr 0.65fr;
+    align-items: center;
+    gap: 14px;
+}
+
+.encabezados-grupos-docente {
+    min-height: 44px;
+    padding: 0 12px;
+    border-bottom: 1px solid #dbe4ef;
+    color: #64748a;
+    font-size: 10px;
+    font-weight: 650;
+}
+
+.fila-grupo-docente {
+    min-height: 66px;
+    padding: 10px 12px;
+    border-bottom: 1px solid #e3eaf2;
+    color: #405169;
+    font-size: 11px;
+}
+
+.fila-grupo-docente:last-child {
+    border-bottom: 0;
+}
+
+.fila-grupo-docente > div {
+    min-width: 0;
+}
+
+.fila-grupo-docente > div:first-child {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.fila-grupo-docente i {
+    color: #4ca6cb;
+}
+
+.fila-grupo-docente strong {
+    color: #071d36;
+    font-size: 12px;
+}
+
+.fila-grupo-docente button {
+    border: 0;
+    padding: 4px 0;
+    background: transparent;
+    color: #075fa9;
+    font: 650 10px "Poppins", Arial, sans-serif;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.fila-grupo-docente button:hover,
+.fila-grupo-docente button:focus-visible {
+    text-decoration: underline;
+}
+
+.sin-grupos-docente {
+    display: flex;
+    min-height: 330px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #68778d;
+    text-align: center;
+}
+
+.sin-grupos-docente i {
+    color: #4ca6cb;
+    font-size: 34px;
+}
+
+.sin-grupos-docente h3 {
+    margin: 8px 0 3px;
+    color: #071d36;
+    font-size: 14px;
+}
+
+.sin-grupos-docente p {
+    margin: 0;
+    font-size: 10px;
+}
+
+.panel-cuenta-docente {
+    padding-bottom: 18px;
+}
+
+.avatar-perfil-docente {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 22px 20px 15px;
+}
+
+.avatar-perfil-docente > div {
+    display: grid;
+    width: 92px;
+    height: 92px;
+    place-items: center;
+    border: 3px solid #57add0;
+    border-radius: 50%;
+    background: #dff3fa;
+    color: #075fa9;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.avatar-perfil-docente small {
+    margin-top: 7px;
+    color: #7a8799;
+    font-size: 9px;
+}
+
+.datos-perfil-docente {
+    display: grid;
+    grid-template-columns: minmax(0, 1.35fr) minmax(110px, 0.65fr);
+    gap: 12px;
+    padding: 0 20px;
+}
+
+.datos-perfil-docente label,
+.campos-dialog-perfil-docente label {
+    display: grid;
+    gap: 5px;
+    min-width: 0;
+}
+
+.datos-perfil-docente label > span,
+.campos-dialog-perfil-docente label > span {
+    color: #1d2e45;
+    font-size: 10px;
+    font-weight: 650;
+}
+
+.datos-perfil-docente input,
+.campos-dialog-perfil-docente input {
+    width: 100%;
+    min-width: 0;
+    height: 40px;
+    border: 1px solid #cbd8e8;
+    border-radius: 8px;
+    padding: 0 11px;
+    background: #f7f9fc;
+    color: #465976;
+    font: 10px "Poppins", Arial, sans-serif;
+}
+
+.acciones-cuenta-docente {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    padding: 18px 20px 0;
+}
+
+.boton-perfil-docente {
+    min-height: 38px;
+    border-radius: 8px;
+    padding: 8px 13px;
+    font: 650 10px "Poppins", Arial, sans-serif;
+    cursor: pointer;
+}
+
+.boton-principal-docente {
+    border: 1px solid #16375f;
+    background: #16375f;
+    color: #fff;
+}
+
+.boton-principal-docente:hover,
+.boton-principal-docente:focus-visible {
+    background: #0f2948;
+}
+
+.boton-secundario-docente {
+    border: 1px solid #aebfd2;
+    background: #fff;
+    color: #183653;
+}
+
+.boton-secundario-docente:hover,
+.boton-secundario-docente:focus-visible {
+    border-color: #17649c;
+    color: #075fa9;
+}
+
+.boton-perfil-docente:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.dialog-perfil-docente {
+    width: min(560px, calc(100vw - 30px));
+    max-height: calc(100vh - 30px);
+    overflow: auto;
+    border: 0;
+    border-radius: 14px;
+    padding: 0;
+    background: #fff;
+    color: #132b45;
+    box-shadow: 0 22px 60px rgba(4, 18, 34, 0.28);
+}
+
+.dialog-perfil-docente::backdrop {
+    background: rgba(4, 16, 30, 0.58);
+    backdrop-filter: blur(2px);
+}
+
+.dialog-perfil-docente form,
+.dialog-grupo-docente > div {
+    margin: 0;
+}
+
+.dialog-perfil-docente header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 18px 20px;
+    border-bottom: 1px solid #d9e3ef;
+    background: #f5fafc;
+}
+
+.dialog-perfil-docente header span {
+    color: #17649c;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.dialog-perfil-docente header h2 {
+    margin: 2px 0 0;
+    font-size: 17px;
+}
+
+.dialog-perfil-docente header > button {
+    display: grid;
+    width: 32px;
+    height: 32px;
+    place-items: center;
+    border: 0;
+    border-radius: 7px;
+    background: #e6eef6;
+    color: #173653;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.campos-dialog-perfil-docente {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    padding: 20px;
+}
+
+.campos-dialog-perfil-docente input {
+    background: #fff;
+}
+
+.campo-ancho-dialog-docente,
+.ayuda-contrasena-docente {
+    grid-column: 1 / -1;
+}
+
+.ayuda-contrasena-docente {
+    margin: -2px 0 0;
+    color: #66768c;
+    font-size: 9px;
+}
+
+.dialog-perfil-docente footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 9px;
+    padding: 14px 20px 18px;
+    border-top: 1px solid #e0e8f1;
+}
+
+.dialog-grupo-docente {
+    width: min(520px, calc(100vw - 30px));
+}
+
+.contenido-detalle-grupo-docente {
+    padding: 18px 20px 8px;
+}
+
+.resumen-detalle-grupo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 9px;
+    padding: 10px 12px;
+    background: #eef8fc;
+    color: #17649c;
+    font-size: 11px;
+    font-weight: 650;
+}
+
+.contenido-detalle-grupo-docente ol {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 22px;
+    margin: 15px 0 8px;
+    padding-left: 27px;
+}
+
+.contenido-detalle-grupo-docente li {
+    border-bottom: 1px solid #e4ebf3;
+    padding: 7px 2px;
+    color: #405169;
+    font-size: 10px;
+}
+
+@media (max-width: 1080px) {
+    .paneles-perfil-docente {
+        grid-template-columns: 1fr;
+    }
+
+    .panel-cuenta-docente {
+        max-width: none;
+    }
+}
+
+@media (max-width: 700px) {
+    .contenido-perfil-docente {
+        padding: 16px 12px;
+    }
+
+    .encabezados-grupos-docente {
+        display: none;
+    }
+
+    .tabla-grupos-docente {
+        display: grid;
+        gap: 10px;
+        padding: 14px;
+    }
+
+    .fila-grupo-docente {
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        border: 1px solid #d7e1ed;
+        border-radius: 10px;
+        padding: 12px;
+    }
+
+    .fila-grupo-docente > div {
+        display: grid;
+        gap: 3px;
+    }
+
+    .fila-grupo-docente > div::before {
+        content: attr(data-etiqueta);
+        color: #7a8798;
+        font-size: 8px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        text-transform: uppercase;
+    }
+
+    .fila-grupo-docente > div:first-child {
+        display: grid;
+    }
+
+    .fila-grupo-docente > div:first-child i {
+        display: none;
+    }
+
+    .datos-perfil-docente,
+    .campos-dialog-perfil-docente {
+        grid-template-columns: 1fr;
+    }
+
+    .campo-ancho-dialog-docente,
+    .ayuda-contrasena-docente {
+        grid-column: auto;
+    }
+
+    .acciones-cuenta-docente,
+    .dialog-perfil-docente footer {
+        flex-direction: column;
+    }
+
+    .acciones-cuenta-docente .boton-perfil-docente,
+    .dialog-perfil-docente footer .boton-perfil-docente {
+        width: 100%;
+    }
+
+    .contenido-detalle-grupo-docente ol {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 430px) {
+    .cabecera-panel-perfil-docente {
+        padding: 13px 15px;
+    }
+
+    .fila-grupo-docente {
+        grid-template-columns: 1fr;
+    }
+
+    .datos-perfil-docente {
+        padding: 0 15px;
+    }
+
+    .acciones-cuenta-docente {
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+}

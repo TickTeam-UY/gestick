@@ -1,0 +1,257 @@
+body {
+    background-image: url("../imagenes/UTU_9296-1024x614.jpg");
+    background-color: #FFFFFFB8;
+    background-blend-mode: lighten;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+
+    font-family: "Poppins", Arial, sans-serif;
+    color: #0b1628;
+    margin: 0;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Tarjeta completa del login */
+header,
+main {
+    width: 90%;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Zona del logo */
+header {
+    background-color: #FFFFFF;
+    margin-top: auto;
+    margin-bottom: 0;
+    padding: 28px 24px 24px;
+    border-radius: 18px 18px 0 0;
+    border: 1px solid #d7dfeb;
+    border-bottom: none;
+    box-shadow: 0 6px 18px rgba(7, 20, 36, 0.14);
+}
+
+header img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Parte inferior del marco */
+main {
+    background-color: #FFFFFF;
+    padding: 0 24px 24px;
+    margin-top: 0;
+    margin-bottom: auto;
+    border-radius: 0 0 18px 18px;
+    border: 1px solid #d7dfeb;
+    border-top: none;
+    box-shadow: 0 6px 18px rgba(7, 20, 36, 0.14);
+}
+
+/* Caja interior */
+section {
+    background-color: #FFFFFF;
+    padding: 0;
+    border-radius: 12px;
+    border: 1px solid #d5deea;
+    overflow: hidden;
+}
+
+/* Tabla */
+.tabla-login {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #FFFFFF;
+}
+
+/* Celdas */
+td {
+    padding: 14px;
+    text-align: left;
+    color: #0b1628;
+}
+
+/* Título del formulario */
+.tabla-login tr:first-child td {
+    text-align: center;
+    background-color: #3b5a92;
+    color: #FFFFFF;
+    padding: 16px;
+    font-weight: 700;
+    font-size: 18px;
+}
+
+/* Separación entre filas */
+.tabla-login tr:not(:first-child):not(:last-child) td {
+    border-bottom: 1px solid #d5deea;
+}
+
+/* Primera columna: etiquetas */
+.tabla-login tr:not(:first-child):not(:last-child) td:first-child {
+    font-weight: 600;
+    width: 38%;
+}
+
+/* Campos */
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 9px 10px;
+    border: 1px solid #cbd6e4;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background-color: #FFFFFF;
+    color: #0b1628;
+    font-family: "Poppins", Arial, sans-serif;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    outline: 2px solid #57A8D0;
+    border-color: #17649C;
+}
+
+/* Fila inferior */
+.tabla-login tr:last-child td {
+    text-align: center;
+    background-color: #F7FAFC;
+    padding: 14px;
+}
+
+/* Botón */
+input[type="submit"] {
+    background-color: #17356d;
+    color: #FFFFFF;
+    border: none;
+    padding: 10px 30px;
+    width: auto;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    font-family: "Poppins", Arial, sans-serif;
+}
+
+input[type="submit"]:hover {
+    background-color: #0f274f;
+}
+
+input[type="submit"]:focus {
+    outline: 3px solid #00A3FF;
+    outline-offset: 2px;
+}
+
+/* Footer */
+footer {
+    width: 100%;
+    margin-top: 0;
+    background-color: #192d4c;
+    color: #FFFFFF;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+footer p {
+    font-size: 12px;
+    margin: 0;
+}
+
+/* Móvil */
+@media (max-width: 600px) {
+    header,
+    main {
+        width: 92%;
+    }
+
+    header {
+        padding: 22px 18px 18px;
+    }
+
+    header img {
+        max-width: 260px;
+    }
+
+    main {
+        padding: 0 16px 18px;
+    }
+
+    td {
+        padding: 12px;
+    }
+
+    .tabla-login tr:not(:first-child):not(:last-child) td:first-child {
+        width: 40%;
+    }
+}
+
+/* Escritorio */
+@media (min-width: 768px) {
+    header,
+    main {
+        width: 520px;
+    }
+}
+
+@media (max-width: 1024px) {
+    header,
+    main {
+        width: min(520px, calc(100% - 40px));
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        background-attachment: scroll;
+    }
+
+    header,
+    main {
+        width: calc(100% - 20px);
+    }
+
+    header {
+        padding: 20px 14px 16px;
+    }
+
+    main {
+        padding: 0 12px 14px;
+    }
+
+    .tabla-login,
+    .tabla-login tbody,
+    .tabla-login tr,
+    .tabla-login td {
+        display: block;
+        width: 100%;
+    }
+
+    .tabla-login tr:not(:first-child):not(:last-child) td:first-child {
+        width: 100%;
+        padding-bottom: 5px;
+        border-bottom: 0;
+    }
+
+    .tabla-login tr:not(:first-child):not(:last-child) td:last-child {
+        padding-top: 5px;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+        min-height: 44px;
+        font-size: 16px;
+    }
+
+    input[type="submit"] {
+        width: 100%;
+        min-height: 44px;
+    }
+}
