@@ -1,7 +1,9 @@
 <?php
 
+/* Centraliza el ciclo de vida y los datos de la sesión autenticada. */
 class Sesion
 {
+    // Después de 30 minutos sin actividad se exige iniciar sesión nuevamente.
     private const TIEMPO_INACTIVIDAD = 1800;
 
     public static function iniciar(): void
@@ -12,6 +14,7 @@ class Sesion
 
         $conexionSegura = !empty($_SERVER["HTTPS"]) && $_SERVER["HTTPS"] !== "off";
 
+        // La cookie no es accesible desde JavaScript y se limita al mismo sitio.
         session_set_cookie_params([
             "lifetime" => 0,
             "path" => "/",
@@ -25,6 +28,7 @@ class Sesion
 
     public static function cerrar(): void
     {
+        // Se eliminan tanto los datos del servidor como la cookie del navegador.
         $_SESSION = [];
 
         if (ini_get("session.use_cookies")) {
@@ -52,6 +56,7 @@ class Sesion
 
     public static function registrarUsuario(array $usuario): void
     {
+        // Regenerar el identificador evita reutilizar la sesión previa al login.
         session_regenerate_id(true);
 
         $_SESSION["usuario_id"] = (int) $usuario["id_usuario"];

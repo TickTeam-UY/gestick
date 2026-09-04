@@ -2,10 +2,12 @@
 
 require_once __DIR__ . "/Modelo.php";
 
+/* Persistencia de usuarios y de la tabla específica asociada a cada rol. */
 final class UsuarioAdministrador extends Modelo
 {
 private function construirFiltros(array $filtros): array
 {
+    // SQL, tipos y valores se construyen juntos para conservar consultas preparadas.
     $condiciones = [];
     $tipos = "";
     $valores = [];
@@ -50,6 +52,7 @@ public function obtener(array $filtros, int $limite = 10): array
     $paginaSolicitada = max(1, (int) ($filtros["pagina"] ?? 1));
     $consultaFiltros = $this->construirFiltros($filtros);
 
+    // El total se calcula antes para corregir páginas que quedaron fuera de rango.
     $sentenciaTotal = $conexion->prepare(
         "SELECT COUNT(*) AS total
          FROM usuario u" . $consultaFiltros["sql"]
@@ -171,6 +174,7 @@ private function insertarPerfilRol(
     string $rol,
     ?int $idTurno
 ): void {
+    // Cada usuario tiene un registro complementario en la tabla de su rol.
     if ($rol === "Tecnico") {
         if ($idTurno === null || $idTurno < 1) {
             throw new DomainException("Selecciona el turno del técnico.");
@@ -244,6 +248,7 @@ public function crear(
     string $contrasena,
     ?int $idTurno
 ): int {
+    // La contraseña nunca se persiste en texto legible.
     $hash = password_hash($contrasena, PASSWORD_DEFAULT);
 
     if ($hash === false) {
@@ -251,6 +256,7 @@ public function crear(
     }
 
     $conexion = self::conexion();
+    // Usuario y perfil de rol deben crearse juntos o no crearse.
     $conexion->begin_transaction();
 
     try {
@@ -290,6 +296,7 @@ public function actualizar(
     $conexion->begin_transaction();
 
     try {
+        // El bloqueo mantiene estable el rol mientras se valida y actualiza la cuenta.
         $sentenciaActual = $conexion->prepare(
             "SELECT rol, activo
              FROM usuario
@@ -311,6 +318,7 @@ public function actualizar(
 
         $rolAnterior = (string) $usuarioActual["rol"];
 
+        // Regla de negocio: el sistema nunca puede quedar sin administrador activo.
         if (
             $rolAnterior === "Administrador" &&
             $rol !== "Administrador" &&
@@ -381,6 +389,7 @@ public function cambiarEstado(int $idUsuario, bool $activar): void
     $conexion->begin_transaction();
 
     try {
+        // Se bloquea la fila para que dos cambios simultáneos no invaliden la regla.
         $sentenciaActual = $conexion->prepare(
             "SELECT rol, activo
              FROM usuario
@@ -428,4 +437,3 @@ public function cambiarEstado(int $idUsuario, bool $activar): void
     }
 }
 }
-

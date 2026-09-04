@@ -1,5 +1,6 @@
 <?php
 
+/* Procesa los avances y cierres de tickets que está atendiendo el técnico. */
 if ($pagina == "en_proceso") {
     require_once __DIR__ . "/../../modelos/Ticket.php";
 

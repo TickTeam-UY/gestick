@@ -2,6 +2,7 @@
 
 require_once __DIR__ . "/Modelo.php";
 
+/* Construye la bandeja global de solicitudes visible para el administrador. */
 final class SolicitudAdministrador extends Modelo
 {
     public function obtener(array $filtros, int $porPagina = 10): array
@@ -80,6 +81,7 @@ final class SolicitudAdministrador extends Modelo
 
     private function construirFiltros(array $filtros): array
     {
+        // Solo se incorporan filtros conocidos; sus valores nunca se concatenan al SQL.
         $condiciones = [];
         $parametros = [];
         $buscar = trim((string) ($filtros["buscar"] ?? ""));

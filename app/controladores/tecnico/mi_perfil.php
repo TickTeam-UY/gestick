@@ -1,5 +1,6 @@
 <?php
 
+/* Gestiona los datos personales y la contraseña del técnico autenticado. */
 if ($pagina === "mi_perfil") {
     require_once __DIR__ . "/../../modelos/Usuario.php";
 

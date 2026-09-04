@@ -69,6 +69,7 @@ class Usuario extends Modelo
             $sentencia->bind_param("sssi", $nombre, $apellido, $correo, $idUsuario);
             $sentencia->execute();
 
+            // Cero filas también puede significar que los datos enviados eran iguales.
             if ($sentencia->affected_rows < 1) {
                 $usuarioActual = self::buscarPorId($idUsuario);
 
@@ -86,6 +87,7 @@ class Usuario extends Modelo
         string $contrasenaActual,
         string $contrasenaNueva
     ): void {
+        // Antes de reemplazarla se comprueba la contraseña que ya pertenece a la cuenta.
         $conexion = self::conexion();
         $sentenciaConsulta = $conexion->prepare(
             "SELECT contrasena
@@ -132,11 +134,12 @@ class Usuario extends Modelo
         string $contrasena,
         string $valorAlmacenado
     ): bool {
+        // password_verify reconoce el algoritmo y la sal almacenados dentro del hash.
         if (password_verify($contrasena, $valorAlmacenado)) {
             return true;
         }
 
-        /* Compatibilidad temporal con las credenciales antiguas. */
+        /* Compatibilidad temporal con credenciales antiguas guardadas como texto. */
         $informacionHash = password_get_info($valorAlmacenado);
 
         if (($informacionHash["algoName"] ?? "unknown") !== "unknown") {
@@ -158,6 +161,7 @@ class Usuario extends Modelo
             return false;
         }
 
+        // Los datos sensibles o internos no deben copiarse a la sesión.
         unset($usuario["contrasena"], $usuario["activo"]);
 
         return $usuario;

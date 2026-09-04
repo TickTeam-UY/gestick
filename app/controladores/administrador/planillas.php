@@ -1,5 +1,6 @@
 <?php
 
+/* Lee los filtros y prepara la bandeja de planillas para la vista. */
 if ($pagina === "planillas") {
     require_once __DIR__ . "/../../modelos/PlanillaAdministrador.php";
     $modeloPlanillaAdministrador = new PlanillaAdministrador();

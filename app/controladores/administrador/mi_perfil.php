@@ -1,5 +1,6 @@
 <?php
 
+/* Gestiona los cambios de datos y contraseña del administrador autenticado. */
 if ($pagina === "mi_perfil") {
     require_once __DIR__ . "/../../modelos/Usuario.php";
 

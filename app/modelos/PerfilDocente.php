@@ -2,6 +2,7 @@
 
 require_once __DIR__ . "/Modelo.php";
 
+/* Consulta los grupos y asignaturas vinculados al perfil del docente. */
 final class PerfilDocente extends Modelo
 {
     public function obtenerGrupos(int $idDocente): array

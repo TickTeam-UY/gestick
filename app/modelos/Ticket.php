@@ -2,6 +2,7 @@
 
 require_once __DIR__ . "/Modelo.php";
 
+/* Operaciones de tickets disponibles para el rol técnico. */
 final class Ticket extends Modelo
 {
 private function convertirParaTecnico(array $ticket): array
@@ -32,6 +33,7 @@ private function convertirParaTecnico(array $ticket): array
 
 private function consultarParaTecnico(string $condicion, array $parametros = []): array
 {
+    // La condición proviene solo de métodos internos; los valores siguen parametrizados.
     $conexion = self::conexion();
     $sql = "SELECT
                 t.id_ticket,
@@ -108,6 +110,7 @@ public function obtenerRecientes(int $idTecnico, int $cantidad = 3): array
 public function tomar(int $idTicket, int $idTecnico): void
 {
     $conexion = self::conexion();
+    // La transacción evita que dos técnicos tomen el mismo ticket a la vez.
     $conexion->begin_transaction();
 
     try {
@@ -193,6 +196,7 @@ public function actualizarPorTecnico(
     }
 
     $conexion = self::conexion();
+    // Se valida y actualiza sobre la misma fila bloqueada para evitar cambios cruzados.
     $conexion->begin_transaction();
 
     try {

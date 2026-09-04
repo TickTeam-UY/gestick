@@ -2,10 +2,12 @@
 
 require_once __DIR__ . "/Modelo.php";
 
+/* Permite al administrador buscar y revisar las planillas registradas. */
 final class PlanillaAdministrador extends Modelo
 {
 private function construirFiltros(array $filtros): array
 {
+    // Mantiene separados el SQL dinámico y los valores de la consulta preparada.
     $condiciones = [];
     $tipos = "";
     $valores = [];
@@ -222,5 +224,4 @@ public function obtenerOpcionesFiltros(): array
     ];
 }
 }
-
 

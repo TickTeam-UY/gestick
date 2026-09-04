@@ -2,6 +2,7 @@
 
 require_once __DIR__ . "/Modelo.php";
 
+/* Genera indicadores administrativos a partir de filtros de fecha y ubicación. */
 final class MetricaAdministrador extends Modelo
 {
 private function condicionesFecha(
@@ -9,6 +10,7 @@ private function condicionesFecha(
     array $filtros,
     string $prefijo = ""
 ): array {
+    // Devuelve la cláusula y sus parámetros para reutilizarla en varias métricas.
     $condiciones = [];
     $tipos = "";
     $valores = [];
@@ -232,4 +234,3 @@ public function obtenerEquiposConMasFallas(array $filtros, int $limite = 5): arr
     }
 }
 }
-

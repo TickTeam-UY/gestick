@@ -4,6 +4,7 @@ require_once __DIR__ . "/../../config/config.php";
 require_once __DIR__ . "/../../include/proteccion.inc";
 require_once __DIR__ . "/../../include/validaciones.php";
 
+// La protección general valida la sesión; aquí se restringe además el rol.
 if (($_SESSION["rol"] ?? "") !== "Docente") {
     header("Location: " . BASE_URL . "/app/controladores/AuthController.php?accion=login_form");
     exit;
@@ -36,6 +37,7 @@ function validarTokenDocente(string $token): bool
 
 function guardarMensajeDocente(string $tipo, string $texto): void
 {
+    // Mensaje flash para informar el resultado después de una redirección.
     $_SESSION["mensaje_docente"] = ["tipo" => $tipo, "texto" => $texto];
 }
 
@@ -55,6 +57,7 @@ if ($pagina === "crear_solicitud") {
     $pagina = "mis_solicitudes";
 }
 
+// Solo estas páginas pueden cargarse desde el parámetro de la URL.
 $paginasPermitidas = [
     "inicio",
     "llenar_planilla",
@@ -69,6 +72,5 @@ if (!in_array($pagina, $paginasPermitidas, true)) {
 $idDocente = (int) ($_SESSION["usuario_id"] ?? 0);
 
 require __DIR__ . "/docente/" . $pagina . ".php";
-
 
 

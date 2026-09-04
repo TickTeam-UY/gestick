@@ -1,5 +1,6 @@
 <?php
 
+/* Normaliza filtros y solicita al modelo las métricas del período seleccionado. */
 function normalizarFechaMetricasAdministrador(string $fecha): string
 {
     $fecha = trim($fecha);
@@ -195,5 +196,4 @@ if ($pagina === "metricas") {
     require __DIR__ . "/../../vistas/administrador/metricas.php";
     return;
 }
-
 

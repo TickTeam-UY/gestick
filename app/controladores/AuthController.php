@@ -4,6 +4,7 @@ require_once __DIR__ . "/../../config/config.php";
 require_once __DIR__ . "/../../include/sesion.php";
 require_once __DIR__ . "/../modelos/Usuario.php";
 
+/* Coordina el formulario de acceso, la autenticación y el cierre de sesión. */
 class AuthController
 {
     public function ejecutar(): void
@@ -11,6 +12,7 @@ class AuthController
         Sesion::iniciar();
         $accion = (string) ($_GET["accion"] ?? "login_form");
 
+        // Punto de entrada único para las acciones públicas de autenticación.
         switch ($accion) {
             case "login_form":
                 $csrfLogin = $this->tokenLogin();
@@ -59,6 +61,7 @@ class AuthController
             $this->alerta("La contraseña ingresada no es válida.", $this->url("login_form"));
         }
 
+        // El modelo decide si la credencial es válida; el controlador solo dirige el flujo.
         try {
             $usuario = Usuario::autenticar($correo, $contrasena);
         } catch (Throwable $error) {
@@ -80,6 +83,7 @@ class AuthController
 
     private function tokenLogin(): string
     {
+        // El token vincula el formulario con la sesión que lo generó.
         if (empty($_SESSION["csrf_login"])) {
             $_SESSION["csrf_login"] = bin2hex(random_bytes(32));
         }
@@ -96,6 +100,7 @@ class AuthController
 
     private function redirigirAlPanel(string $rol): never
     {
+        // La pantalla inicial se elige en el servidor, no desde un dato enviado por el cliente.
         $controladores = [
             "Administrador" => "AdministradorController.php",
             "Tecnico" => "TecnicoController.php",
@@ -124,6 +129,7 @@ class AuthController
 
     private function alerta(string $mensaje, string $url): never
     {
+        // json_encode impide que el mensaje o la URL rompan el JavaScript de respuesta.
         $mensajeSeguro = json_encode(
             $mensaje,
             JSON_UNESCAPED_UNICODE | JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT

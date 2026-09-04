@@ -3,12 +3,17 @@
 
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
+/*
+ * Mantiene una sola conexión compartida durante cada petición.
+ * Los modelos acceden a ella mediante Modelo::conexion().
+ */
 class Conexion
 {
     private static ?mysqli $instancia = null;
 
     public static function obtener(): mysqli
     {
+        // Reutilizar la instancia evita abrir una conexión nueva por cada consulta.
         if (self::$instancia instanceof mysqli) {
             return self::$instancia;
         }
@@ -43,6 +48,7 @@ class Conexion
             return $configuracion;
         }
 
+        // El archivo local permite cambiar de servidor sin modificar esta clase.
         $archivoLocal = __DIR__ . "/database.local.php";
         $valoresLocales = is_file($archivoLocal) ? require $archivoLocal : [];
 
@@ -82,5 +88,6 @@ class Conexion
 
 function obtenerConexion(): mysqli
 {
+    // Función conservada para módulos antiguos que todavía no usan la clase base Modelo.
     return Conexion::obtener();
 }

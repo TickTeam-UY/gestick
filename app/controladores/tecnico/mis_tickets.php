@@ -1,5 +1,6 @@
 <?php
 
+/* Prepara todos los tickets asignados al técnico y procesa sus cambios. */
 if ($pagina == "mis_tickets") {
     require_once __DIR__ . "/../../modelos/Ticket.php";
 

@@ -2,6 +2,7 @@
 
 require_once __DIR__ . "/Modelo.php";
 
+/* Creación, consulta y cancelación de solicitudes pertenecientes a un docente. */
 final class SolicitudDocente extends Modelo
 {
     public function crear(int $idDocente, string $asunto, string $descripcion): int
@@ -11,6 +12,7 @@ final class SolicitudDocente extends Modelo
         $this->validarDatosCreacion($idDocente, $asunto, $descripcion);
 
         $conexion = self::conexion();
+        // La validación del docente y la creación deben compartir el mismo resultado.
         $conexion->begin_transaction();
 
         try {
@@ -52,6 +54,7 @@ final class SolicitudDocente extends Modelo
         }
 
         $conexion = self::conexion();
+        // Se bloquea la solicitud para comprobar autoría y estado antes de cancelarla.
         $conexion->begin_transaction();
 
         try {
@@ -193,6 +196,7 @@ final class SolicitudDocente extends Modelo
         string $asunto,
         string $descripcion
     ): void {
+        // Estas reglas se aplican aunque el navegador omita sus validaciones HTML.
         if ($idDocente < 1) {
             throw new DomainException("No fue posible identificar la cuenta del docente.");
         }

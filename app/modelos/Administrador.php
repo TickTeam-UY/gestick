@@ -2,6 +2,7 @@
 
 require_once __DIR__ . "/Modelo.php";
 
+/* Reúne la información resumida que se muestra en el inicio del administrador. */
 final class Administrador extends Modelo
 {
     public function obtenerUltimosTickets(int $limite = 2): array

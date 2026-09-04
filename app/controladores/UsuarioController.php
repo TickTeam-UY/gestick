@@ -2,6 +2,10 @@
 
 require_once __DIR__ . "/../modelos/UsuarioAdministrador.php";
 
+/*
+ * Capa de aplicación para administrar usuarios. Valida la entrada, aplica
+ * permisos y delega la persistencia en UsuarioAdministrador.
+ */
 class UsuarioController
 {
     private UsuarioAdministrador $modelo;
@@ -17,6 +21,7 @@ class UsuarioController
         $usuarioSesionId = (int) ($_SESSION["usuario_id"] ?? 0);
 
         if ($_SERVER["REQUEST_METHOD"] === "POST") {
+            // Patrón Post/Redirect/Get: evita repetir una operación al actualizar la página.
             $this->procesarFormulario($usuarioSesionId);
             redirigirAdministrador("usuarios");
         }
@@ -62,6 +67,7 @@ class UsuarioController
             return;
         }
 
+        // La acción declarada por el formulario determina una operación permitida.
         try {
             $accion = (string) ($_POST["accion"] ?? "");
 
@@ -112,6 +118,7 @@ class UsuarioController
         $usuario = $this->validarDatos($_POST, false);
 
         if ($idUsuario === $usuarioSesionId && $usuario["rol"] !== "Administrador") {
+            // La cuenta en uso no puede retirarse a sí misma el acceso administrativo.
             throw new DomainException("No puedes cambiar el rol de tu propia cuenta.");
         }
 
@@ -138,6 +145,7 @@ class UsuarioController
         $idUsuario = $this->leerIdUsuario();
 
         if ($idUsuario === $usuarioSesionId && $accion === "desactivar_usuario") {
+            // Impide cerrar accidentalmente la cuenta con la que se administra el sistema.
             throw new DomainException("No puedes desactivar tu propia cuenta.");
         }
 
@@ -164,6 +172,7 @@ class UsuarioController
 
     private function validarDatos(array $datos, bool $esCreacion): array
     {
+        // La validación se repite en el servidor aunque el formulario también use HTML.
         $nombre = trim((string) ($datos["nombre"] ?? ""));
         $apellido = trim((string) ($datos["apellido"] ?? ""));
         $correo = strtolower(trim((string) ($datos["correo"] ?? "")));
@@ -249,6 +258,7 @@ class UsuarioController
     {
         error_log("GesTIck - error al administrar usuarios: " . $error->getMessage());
 
+        // Se traduce el error técnico a un mensaje comprensible sin exponer detalles SQL.
         switch ($error->getCode()) {
             case 1062:
                 guardarMensajeAdministrador("error", "El correo electrónico ya está registrado.");

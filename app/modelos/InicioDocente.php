@@ -2,6 +2,7 @@
 
 require_once __DIR__ . "/Modelo.php";
 
+/* Calcula el resumen y la actividad reciente del docente autenticado. */
 final class InicioDocente extends Modelo
 {
     public function resumenVacio(): array

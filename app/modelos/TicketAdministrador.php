@@ -2,10 +2,12 @@
 
 require_once __DIR__ . "/Modelo.php";
 
+/* Consultas y acciones de asignación de tickets exclusivas del administrador. */
 final class TicketAdministrador extends Modelo
 {
 public function obtener(array $filtros, int $porPagina = 10): array
 {
+    // Cada filtro añade su cláusula y su parámetro preparado en paralelo.
     $conexion = self::conexion();
     $porPagina = max(1, min($porPagina, 50));
     $condiciones = [];
@@ -191,6 +193,7 @@ public function administrar(
     ?string $solucion
 ): void {
     $conexion = self::conexion();
+    // Bloquear el ticket impide que una asignación y una autoasignación se pisen.
     $conexion->begin_transaction();
 
     try {

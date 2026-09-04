@@ -318,6 +318,7 @@ public function actualizarUbicacion(int $idUbicacion, string $nombre): void
 
 public function eliminarUbicacion(int $idUbicacion): void
 {
+    // Las dependencias se comprueban para no romper el historial del inventario.
     $sentenciaDependencias = self::conexion()->prepare(
         "SELECT
             (SELECT COUNT(*) FROM equipo WHERE id_ubicacion = ?) AS equipos,
@@ -369,6 +370,7 @@ public function crear(
     ?int $idUbicacion,
     int $esPrestable
 ): int {
+    // El controlador entrega identificadores ya validados contra sus catálogos.
     $conexion = self::conexion();
     $sentencia = $conexion->prepare(
         "INSERT INTO equipo
@@ -441,6 +443,7 @@ public function actualizar(
 
 public function eliminar(int $idEquipo): void
 {
+    // Un equipo utilizado por otro módulo conserva su trazabilidad y no se elimina.
     $sentenciaDependencias = self::conexion()->prepare(
         "SELECT
             (SELECT COUNT(*) FROM equipo_componente WHERE id_equipo = ?) AS componentes,
@@ -487,6 +490,7 @@ public function eliminar(int $idEquipo): void
 
 private function detectarComponente(string $descripcion): string
 {
+    // Clasifica descripciones históricas para mostrarlas en la ficha del equipo.
     $descripcion = mb_strtolower($descripcion);
 
     foreach (["Monitor", "Teclado", "Torre", "Mouse"] as $componente) {

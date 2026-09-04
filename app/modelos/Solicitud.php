@@ -2,6 +2,7 @@
 
 require_once __DIR__ . "/Modelo.php";
 
+/* Bandeja y flujo de actualización de solicitudes atendidas por técnicos. */
 final class Solicitud extends Modelo
 {
     public function obtenerParaTecnico(int $idTecnico, ?int $limite = null): array
@@ -68,6 +69,7 @@ final class Solicitud extends Modelo
         );
 
         $conexion = self::conexion();
+        // La validación y la actualización comparten la misma transacción.
         $conexion->begin_transaction();
 
         try {
@@ -210,6 +212,7 @@ final class Solicitud extends Modelo
 
     private function bloquearSolicitud(mysqli $conexion, int $idSolicitud): array|false
     {
+        // FOR UPDATE evita que dos técnicos modifiquen simultáneamente la solicitud.
         $sentencia = $conexion->prepare(
             "SELECT s.id_tecnico, s.fecha_envio, es.nombre_estado AS estado
              FROM solicitud AS s

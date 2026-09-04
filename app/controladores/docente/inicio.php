@@ -1,5 +1,6 @@
 <?php
 
+/* Carga el resumen y las solicitudes recientes del docente autenticado. */
 require_once __DIR__ . "/../../modelos/InicioDocente.php";
 
 $modeloInicioDocente = new InicioDocente();

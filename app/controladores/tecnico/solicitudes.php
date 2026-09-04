@@ -1,5 +1,6 @@
 <?php
 
+/* Gestiona las solicitudes que el técnico puede atender y actualizar. */
 require_once __DIR__ . "/../../modelos/Solicitud.php";
 
 $modeloSolicitud = new Solicitud();

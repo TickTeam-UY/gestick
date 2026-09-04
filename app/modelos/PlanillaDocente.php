@@ -2,10 +2,12 @@
 
 require_once __DIR__ . "/Modelo.php";
 
+/* Registra una planilla del docente junto con la asistencia y estado de cada equipo. */
 final class PlanillaDocente extends Modelo
 {
 public function obtenerOpciones(int $idDocente): array
 {
+    // Las opciones se limitan a grupos, turnos y asignaturas vinculados al docente.
     if ($idDocente < 1) {
         throw new DomainException("No fue posible identificar la cuenta del docente.");
     }
@@ -105,6 +107,7 @@ private function valorRelacionadoConDocente(
     int $idDocente,
     int $valor
 ): bool {
+    // Solo se permiten nombres de tabla y columna definidos por el propio modelo.
     $tablasPermitidas = [
         "docente_grupo" => "id_grupo",
         "docente_asignatura" => "id_asignatura",
@@ -194,6 +197,7 @@ public function guardar(int $idDocente, array $datos): array
     }
 
     $conexion = self::conexion();
+    // Cabecera, detalles y estados de equipos forman una única operación atómica.
     $conexion->begin_transaction();
 
     try {
@@ -227,6 +231,7 @@ public function guardar(int $idDocente, array $datos): array
             throw new DomainException("El turno seleccionado no está asignado a tu cuenta.");
         }
 
+        // El bloqueo conserva el inventario estable mientras se registra la planilla.
         $sentenciaEquipos = $conexion->prepare(
             "SELECT id_equipo, codigo
              FROM equipo

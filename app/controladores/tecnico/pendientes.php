@@ -1,5 +1,6 @@
 <?php
 
+/* Lista tickets sin asignar y permite que el técnico tome uno disponible. */
 if ($pagina == "pendientes") {
     require_once __DIR__ . "/../../modelos/Ticket.php";
 

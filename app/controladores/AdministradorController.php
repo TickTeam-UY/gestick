@@ -4,6 +4,7 @@ require_once __DIR__ . "/../../config/config.php";
 require_once __DIR__ . "/../../include/proteccion.inc";
 require_once __DIR__ . "/../../include/validaciones.php";
 
+// La protección general valida la sesión; aquí se restringe además el rol.
 if (($_SESSION["rol"] ?? "") !== "Administrador") {
     header("Location: " . BASE_URL . "/app/controladores/AuthController.php?accion=login_form");
     exit;
@@ -20,6 +21,7 @@ function redirigirAdministrador(string $pagina): never
 
 function guardarMensajeAdministrador(string $tipo, string $texto): void
 {
+    // Mensaje flash: se guarda antes de redirigir y se muestra una sola vez.
     $_SESSION["mensaje_administrador"] = [
         "tipo" => $tipo,
         "texto" => $texto
@@ -36,6 +38,7 @@ function consumirMensajeAdministrador(): ?array
 
 function tokenAdministrador(): string
 {
+    // Un único token protege todos los formularios de administración de la sesión.
     if (empty($_SESSION["csrf_administrador"])) {
         $_SESSION["csrf_administrador"] = bin2hex(random_bytes(32));
     }
@@ -56,6 +59,7 @@ if ($pagina === "reportes") {
     $pagina = "metricas";
 }
 
+// Lista blanca: solo se incluyen archivos de páginas conocidas por el sistema.
 $paginasDisponibles = ["inicio", "tickets", "solicitudes", "planillas", "equipos", "prestamos", "usuarios", "metricas", "mi_perfil"];
 
 if (!in_array($pagina, $paginasDisponibles, true)) {
@@ -63,6 +67,7 @@ if (!in_array($pagina, $paginasDisponibles, true)) {
 }
 
 if ($pagina === "usuarios") {
+    // Usuarios tiene un controlador propio porque incluye altas, modificaciones y bajas lógicas.
     require_once __DIR__ . "/UsuarioController.php";
     $controladorUsuarios = new UsuarioController();
     $controladorUsuarios->administrar();
@@ -70,7 +75,6 @@ if ($pagina === "usuarios") {
 }
 
 require __DIR__ . "/administrador/" . $pagina . ".php";
-
 
 
 

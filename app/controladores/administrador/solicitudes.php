@@ -1,5 +1,6 @@
 <?php
 
+/* Prepara la bandeja global de solicitudes con filtros y paginación. */
 if ($pagina === "solicitudes") {
     require_once __DIR__ . "/../../modelos/SolicitudAdministrador.php";
     $modeloSolicitudesAdministrador = new SolicitudAdministrador();

@@ -1,5 +1,6 @@
 <?php
 
+/* Reúne la actividad reciente que alimenta el inicio del técnico. */
 if ($pagina == "inicio") {
     require_once __DIR__ . "/../../modelos/Ticket.php";
     require_once __DIR__ . "/../../modelos/Solicitud.php";

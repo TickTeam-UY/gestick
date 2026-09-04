@@ -1,5 +1,6 @@
 <?php
 
+/* Valida y coordina las altas, cambios y bajas del inventario. */
 function validarDatosEquipoAdministrador(array $datos, Equipo $modeloEquipo): array
 {
     $codigo = strtoupper(trim($datos["codigo"] ?? ""));
@@ -192,5 +193,4 @@ if ($pagina === "equipos") {
     require __DIR__ . "/../../vistas/administrador/equipos.php";
     return;
 }
-
 

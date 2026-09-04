@@ -1,5 +1,6 @@
 <?php
 
+/* Valida el formulario y delega al modelo el registro completo de la planilla. */
 if ($pagina === "llenar_planilla") {
     require_once __DIR__ . "/../../modelos/PlanillaDocente.php";
     $modeloPlanillaDocente = new PlanillaDocente();

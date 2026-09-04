@@ -1,5 +1,6 @@
 <?php
 
+/* Valida y coordina el ciclo de alta, edición y devolución de préstamos. */
 function validarFechaPrestamoAdministrador(string $fecha, string $etiqueta): string
 {
     $fecha = trim($fecha);
@@ -186,5 +187,4 @@ if ($pagina === "prestamos") {
     require __DIR__ . "/../../vistas/administrador/prestamos.php";
     return;
 }
-
 

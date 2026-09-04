@@ -1,5 +1,6 @@
 <?php
 
+/* Procesa la asignación y reasignación de tickets y prepara su bandeja. */
 if ($pagina === "tickets") {
     require_once __DIR__ . "/../../modelos/TicketAdministrador.php";
     $modeloTicketAdministrador = new TicketAdministrador();

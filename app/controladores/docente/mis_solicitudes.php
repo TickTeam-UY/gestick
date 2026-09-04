@@ -1,5 +1,6 @@
 <?php
 
+/* Coordina la creación, consulta y cancelación de solicitudes del docente. */
 if ($pagina === "mis_solicitudes") {
     require_once __DIR__ . "/../../modelos/SolicitudDocente.php";
 

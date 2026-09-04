@@ -2,10 +2,12 @@
 
 require_once __DIR__ . "/Modelo.php";
 
+/* Administra préstamos y mantiene sincronizado el estado de sus equipos. */
 final class PrestamoAdministrador extends Modelo
 {
 private function construirFiltros(array $filtros): array
 {
+    // Se devuelven por separado el SQL dinámico y los valores que serán enlazados.
     $condiciones = [];
     $tipos = "";
     $valores = [];
@@ -318,6 +320,7 @@ private function validarAlumno(mysqli $conexion, int $idAlumno): void
 
 private function validarEquiposNuevos(mysqli $conexion, array $idsEquipos): void
 {
+    // El bloqueo reserva los equipos disponibles hasta finalizar la transacción.
     $idsEquipos = array_values(array_unique(array_map("intval", $idsEquipos)));
     $marcadores = implode(", ", array_fill(0, count($idsEquipos), "?"));
     $sentencia = $conexion->prepare(
@@ -416,6 +419,7 @@ public function crear(
     }
 
     $conexion = self::conexion();
+    // Préstamo, relaciones y estado de inventario se guardan como una sola unidad.
     $conexion->begin_transaction();
 
     try {
@@ -507,6 +511,7 @@ public function actualizar(
             $sentenciaActuales->close();
         }
 
+        // Solo se reservan o liberan los equipos que realmente cambiaron.
         $idsAgregados = array_values(array_diff($idsEquipos, $idsActuales));
         $idsQuitados = array_values(array_diff($idsActuales, $idsEquipos));
 
@@ -583,6 +588,7 @@ public function marcarAtrasado(int $idPrestamo): void
 public function devolver(int $idPrestamo, string $fechaDevolucion): void
 {
     $conexion = self::conexion();
+    // Registrar la devolución también libera todos los equipos del préstamo.
     $conexion->begin_transaction();
 
     try {
@@ -665,4 +671,3 @@ public function devolver(int $idPrestamo, string $fechaDevolucion): void
     }
 }
 }
-

@@ -1,3 +1,4 @@
+/* Formulario de planilla y filas de asistencia/equipos del docente. */
 .encabezado-planilla-docente {
     min-height: 150px;
 }
@@ -403,4 +404,3 @@
         width: 100%;
     }
 }
-

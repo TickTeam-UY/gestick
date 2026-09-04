@@ -3,7 +3,8 @@
 require_once __DIR__ . "/../../config/conexion.php";
 
 /*
- * Clase base de la capa de datos.
+ * Clase base de la capa de datos. Evita repetir la obtención de la conexión
+ * y el enlace de parámetros en consultas construidas de forma dinámica.
  */
 abstract class Modelo
 {
@@ -17,6 +18,7 @@ abstract class Modelo
         string $tipos,
         array &$valores
     ): void {
+        // bind_param exige referencias; este arreglo las prepara sin usar SQL concatenado.
         if ($tipos === "") {
             return;
         }

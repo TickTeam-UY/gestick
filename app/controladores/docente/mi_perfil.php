@@ -1,5 +1,6 @@
 <?php
 
+/* Prepara el perfil del docente junto con sus grupos y asignaturas. */
 if ($pagina === "mi_perfil") {
     require_once __DIR__ . "/../../modelos/Usuario.php";
     require_once __DIR__ . "/../../modelos/PerfilDocente.php";

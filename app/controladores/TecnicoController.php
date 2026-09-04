@@ -4,6 +4,7 @@ require_once __DIR__ . "/../../config/config.php";
 require_once __DIR__ . "/../../include/proteccion.inc";
 require_once __DIR__ . "/../../include/validaciones.php";
 
+// Se admiten ambas grafías para mantener compatibilidad con datos ya existentes.
 if ($_SESSION["rol"] != "Tecnico" &&
     $_SESSION["rol"] != "Técnico") {
 
@@ -22,6 +23,7 @@ function redirigirTecnico(string $pagina): never
 
 function guardarMensajeTecnico(string $tipo, string $texto): void
 {
+    // Mensaje flash: sobrevive a la redirección y luego se elimina al leerlo.
     $_SESSION["mensaje_tecnico"] = [
         "tipo" => $tipo,
         "texto" => $texto
@@ -54,6 +56,7 @@ function validarTokenTecnico(string $token): bool
 
 $pagina = $_GET["pagina"] ?? "inicio";
 
+// La lista blanca evita construir una ruta de archivo a partir de cualquier texto recibido.
 $paginasPermitidas = [
     "inicio",
     "mis_tickets",
@@ -69,6 +72,5 @@ if (!in_array($pagina, $paginasPermitidas)) {
 }
 
 require __DIR__ . "/tecnico/" . $pagina . ".php";
-
 
 

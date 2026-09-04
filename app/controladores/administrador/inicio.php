@@ -1,5 +1,6 @@
 <?php
 
+/* Prepara los resúmenes del panel inicial y captura fallos sin romper la vista. */
 require_once __DIR__ . "/../../modelos/Administrador.php";
 
 $modeloAdministrador = new Administrador();
